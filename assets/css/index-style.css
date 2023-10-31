@@ -1,0 +1,58 @@
+/**
+ * @author Elias De Hondt
+ * @see https://eliasdh.com
+ * @since 31/10/2023
+ */
+
+body {
+    background-color: #49b373;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.app-name {
+    color: #ffffff;
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-form {
+    border: 1px solid #cccccc;
+    width: 300px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form input {
+    width: 300px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.login-form button {
+    background-color: #3498db;
+    color: #ffffff;
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+header img {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
