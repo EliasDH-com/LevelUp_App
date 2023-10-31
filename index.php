@@ -21,7 +21,7 @@
     </header>
     <main>
       <div class="login-form">
-        <form method="post" action="">
+        <form method="post" action="index.php">
           <input type="email" name="email" placeholder="E-mail" required><br>
           <input type="password" name="password" placeholder="Password" required><br>
           <button type="submit" name="login_post">Login</button>
@@ -34,22 +34,20 @@
 <!--HTML-->
 <!--PHP-->
 <?php
-if (isset($_POST['login_post'])) {
+$conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
+
+if(isset($_POST['login_post'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $file = 'data/users.csv';
 
-  if (file_exists($file)) { // Check if the file exists
-    $users = array_map('str_getcsv', file($file));
+  $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+  $result = mysqli_query($conn, $sql);
+  
+  while($row = mysqli_fetch_array($result)) {
+    $db_password = $row['password'];
 
-    foreach ($users as $user) { // Loop through user data
-      $db_email = $user[1];
-      $db_password = $user[2];
-
-      if ($email === $db_email && $password === $db_password) {
-        header('Location: /assets/pages/dashboard.php');
-        exit;
-      }
+    if($password == $db_password) {
+      header("Location: assets/pages/dashboard.php");
     }
   }
 }
