@@ -34,6 +34,8 @@
 <!--HTML-->
 <!--PHP-->
 <?php
+session_start(); // Start de sessie
+
 $conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
 
 if(isset($_POST['login_post'])) {
@@ -47,6 +49,9 @@ if(isset($_POST['login_post'])) {
     $db_password = $row['password'];
 
     if($password == $db_password) {
+      $_SESSION['user_id'] = $row['user_id'];
+      $_SESSION['username'] = $row['username'];
+      
       header("Location: assets/pages/dashboard.php");
     }
   }
