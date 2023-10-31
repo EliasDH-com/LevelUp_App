@@ -16,11 +16,11 @@
     <!--CSS-->
   </head>
   <body>
-    <header>
-      <img src="/assets/media/images/index-logo.png" alt="Logo">
-    </header>
     <main>
       <div class="login-form">
+        <div class="logo">
+          <img src="/assets/media/images/index-logo.png" alt="Logo">
+        </div>
         <form method="post" action="index.php">
           <input type="email" name="email" placeholder="E-mail" required><br>
           <input type="password" name="password" placeholder="Password" required><br>
