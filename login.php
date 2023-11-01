@@ -12,16 +12,16 @@
     <link href="/assets/media/images/favicon.ico" rel="icon">
     <!--Favicon-->
     <!--CSS-->
-    <link rel="stylesheet" href="/assets/css/index-style.css">
+    <link rel="stylesheet" href="/assets/css/login-style.css">
     <!--CSS-->
   </head>
   <body>
     <main>
       <div class="login-form">
         <div class="logo">
-          <img src="/assets/media/images/index-logo.png" alt="Logo">
+          <img src="/assets/media/images/logo.png" alt="Logo">
         </div>
-        <form method="post" action="index.php">
+        <form method="post" action="login.php">
           <input type="email" name="email" placeholder="E-mail" required><br>
           <input type="password" name="password" placeholder="Password" required><br>
           <button type="submit" name="login_post">Login</button>

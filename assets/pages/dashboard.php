@@ -5,7 +5,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /index.php");
+    header("Location: /login.php");
     exit();
 }
 
@@ -42,7 +42,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
     <body>
         <header>
             <div class="logo">
-                <img src="/assets/media/images/index-logo.png" alt="Logo">
+                <img src="/assets/media/images/logo.png" alt="Logo">
             </div>
         </header>
         <main>
