@@ -11,16 +11,11 @@ body {
     padding: 0;
 }
 
-main {
+.top-bar {
+    background-color: #49b373;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-.logo {
-    order: -1;
-    text-align: left;
+    justify-content: center;
+    width: 100%;
 }
 
 .logo img {
@@ -29,12 +24,18 @@ main {
     margin: 10px;
 }
 
-.top-bar {
+
+
+
+.left-bar {
+    background-color: #49b373;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     width: 100%;
-    margin-bottom: 20px;
 }
+
+
+
 
 .zones, .locations {
     padding: 10px;
@@ -62,4 +63,47 @@ table th, table td {
 table th {
     background-color: #49b373;
     color: white;
+}
+
+
+
+
+
+
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.side-menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    color: #f1f1f1;
+}
+
+.side-menu .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.username {
+    color: #49b373;
 }

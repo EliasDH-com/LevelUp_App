@@ -38,15 +38,38 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
         <!--CSS-->
         <link rel="stylesheet" href="/assets/css/dashboard-style.css">
         <!--CSS-->
+        <!--bootstrap-->
+        <link rel="stylesheet" href="/assets/css/bootstrap.css">
+        <!--bootstrap-->
     </head>
     <body>
-        <header>
-            <div class="logo">
-                <img src="/assets/media/images/logo.png" alt="Logo">
-            </div>
-        </header>
         <main>
+            <span style="font-size:30px;cursor:pointer" onclick="openSideMenu()">&#9776;</span>
+
+            <div class="side-menu" id="sideMenu">
+                <a href="javascript:void(0)" class="close-btn" onclick="closeSideMenu()">&times;</a>
+                <a class="username">Welcome, <?php echo $username; ?></a>
+                <a href="/assets/pages/dashboard.php">Dashboard</a>
+                <a href="/login.php">Logout</a>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+        
+
+
+
+
+
             <div class="top-bar">
+                <div class="logo">
+                    <img src="/assets/media/images/logo.png" alt="Logo">
+                </div>
                 <div class="zones">
                     <h2>Zones:</h2>
                     <?php
@@ -56,6 +79,8 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                     }
                     ?>
                 </div>
+            </div>
+            <div class="left-bar">
                 <div class="locations">
                     <h2>Locations:</h2>
                     <?php
@@ -67,28 +92,32 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                 </div>
             </div>
             <div class="item-display">
-        <h2>Filtered Items:</h2>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Status</th>
-                <th>Assigned</th>
-                <th>Zone ID</th>
-            </tr>
-            <?php
-            // Fetch and display items in a table
-            while ($item = $itemsQuery->fetch_assoc()) {
-                echo '<tr>';
-                echo '<td>' . $item['name'] . '</td>';
-                echo '<td>' . $item['status'] . '</td>';
-                echo '<td>' . $item['assigned'] . '</td>';
-                echo '<td>' . $item['zone_id'] . '</td>';
-                echo '</tr>';
-            }
-            ?>
-        </table>
-    </div>
+                <h2>Filtered Items:</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Assigned</th>
+                        <th>Zone ID</th>
+                    </tr>
+                    <?php
+                    // Fetch and display items in a table
+                    while ($item = $itemsQuery->fetch_assoc()) {
+                        echo '<tr>';
+                        echo '<td>' . $item['name'] . '</td>';
+                        echo '<td>' . $item['status'] . '</td>';
+                        echo '<td>' . $item['assigned'] . '</td>';
+                        echo '<td>' . $item['zone_id'] . '</td>';
+                         echo '</tr>';
+                    }
+                    ?>
+                </table>
+            </div>
         </main>
     </body>
+    <!--JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/assets/js/dashboard-menu.js"></script>
+    <!--JS-->
 </html>
 <!--HTML-->
