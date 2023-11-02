@@ -29,7 +29,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
     <head>
         <!--Meta + Title-->
         <meta charset="utf-8">
-        <title>Level Up Upkeepify</title>
+        <title>Level Up - Dashboard</title>
         <meta property="og:title" content="Level Up Upkeepify"/>
         <!--Meta + Title-->
         <!--Favicon-->
@@ -50,6 +50,9 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                 <a href="javascript:void(0)" class="close-btn" onclick="closeSideMenu()">&times;</a>
                 <a class="username">Welcome, <?php echo $username; ?></a>
                 <a href="/assets/pages/dashboard.php">Dashboard</a>
+                <a href="/assets/pages/">Upkeepify</a>
+                <a href="/assets/pages/">SessionSync</a>
+                <a href="/assets/pages/">KioskPulse</a>
                 <a href="/login.php">Logout</a>
             </div>
 

@@ -5,8 +5,8 @@
   <head>
     <!--Meta + Title-->
     <meta charset="utf-8">
-    <title>Level Up Upkeepify</title>
-    <meta property="og:title" content="Level Up Upkeepify"/>
+    <title>Level Up - Login</title>
+    <meta property="og:title" content="Level Up - Login"/>
     <!--Meta + Title-->
     <!--Favicon-->
     <link href="/assets/media/images/favicon.ico" rel="icon">
@@ -27,7 +27,7 @@
           <button type="submit" name="login_post">Login</button>
         </form>
       </div>
-      <div class="app-name">Level Up Upkeepify</div>
+      <div class="app-name">Level Up App</div>
     </main>
   </body>
 </html>
