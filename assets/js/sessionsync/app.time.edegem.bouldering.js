@@ -1,8 +1,9 @@
 /**
  * @author Elias De Hondt
  * @see https://eliasdh.com
- * @since 08/08/2021
+ * @since 31/10/2023
  */
+
 (function(t) {
     function a(a) {
         for (var r, n, l = a[0], o = a[1], i = a[2], d = 0, f = []; d < l.length; d++) n = l[d], Object.prototype.hasOwnProperty.call(e, n) && e[n] && f.push(e[n][0]), e[n] = 0;

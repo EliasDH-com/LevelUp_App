@@ -1,8 +1,9 @@
 /**
  * @author Elias De Hondt
  * @see https://eliasdh.com
- * @since 08/08/2021
+ * @since 31/10/2023
  */
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([
     ["chunk-vendors"], {
         "00ee": function(t, e, n) {

@@ -1,8 +1,9 @@
 /**
  * @author Elias De Hondt
  * @see https://eliasdh.com
- * @since 08/08/2021
+ * @since 31/10/2023
  */
+
 function updateClock() {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');

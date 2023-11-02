@@ -49,7 +49,6 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
         <header>
             <div class="navigation-bar">
                 <div class="main-menu-top">
-                    <!-- Your logo goes here -->
                     <img class="main-menu-top" src="/assets/media/images/logo.png" alt="Logo">
                     <p class="username">Hey, <?php echo $username; ?></p>
                 </div>
