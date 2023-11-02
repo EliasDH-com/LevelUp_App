@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--Van Elias De Hondt-->
+<html lang="nl" class="h-full">
+    <head>
+        <!--Meta + Title-->
+        <meta charset="utf-8">
+        <title>Level Up Edegem Time Trampoline</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta property="og:title" content="Level Up Edegem Time Trampoline"/>
+        <!--Meta + Title-->
+        <!--Favicon-->
+        <link href="/assets/media/images/favicon.ico" rel="icon">
+        <!--Favicon-->
+        <!--CSS-->
+        <link rel="stylesheet" href="/assets/css/sessionsync-style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!--CSS-->
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="/assets/css/bootstrap.css">
+        <!--Bootstrap-->
+    </head>
+    <body class="w-full h-full">
+        <div id="app"></div>
+        <!--JS-->
+        <script src="/assets/js/sessionsync/chunk-vendors.js"></script>
+        <script src="/assets/js/sessionsync/app.time.edegem.trampoline.js"></script>
+        <script>
+            function loadAttentionSafetyVideo() {
+                location.href = "/assets/pages/sessionsync/safetyvideo/attention-safetyvideo-trampoline.html";
+            }
+            
+            function executeAtSpecificTime(hour, minute) {
+                const now = new Date();
+                const currentHour = now.getHours();
+                const currentMinute = now.getMinutes();
+                
+                if (currentHour === hour && currentMinute === minute) {
+                    loadAttentionSafetyVideo();
+                }
+            }
+            
+            setInterval(function() {
+                executeAtSpecificTime(9, 31);
+                executeAtSpecificTime(10, 31);
+                executeAtSpecificTime(11, 31);
+                executeAtSpecificTime(12, 31);
+                executeAtSpecificTime(13, 31);
+                executeAtSpecificTime(14, 31);
+                executeAtSpecificTime(15, 31);
+                executeAtSpecificTime(17, 31);
+            }, 60000); // Check every minute 60000
+        </script>
+        <!--JS-->
+    </body>
+</html>

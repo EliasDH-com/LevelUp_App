@@ -10,6 +10,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 /* Main Menu */
 nav ul {
     list-style: none;
@@ -52,6 +53,7 @@ nav ul li a:hover {
 }
 /* Main Menu */
 
+
 /* Main Menu Top */
 .main-menu-top {
     width: 100%;
@@ -66,6 +68,7 @@ nav ul li a:hover {
     text-transform: capitalize; /* Hoofdlettergebruik */
 }
 /* Main Menu Top */
+
 
 /* Main Menu Center */
 .has-submenu > a {
@@ -93,8 +96,9 @@ nav ul li a:hover {
 }
 
 .submenu li {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 20px;
     transition: background-color 0.3s;
 }
 
@@ -110,6 +114,7 @@ nav ul li a:hover {
     color: #ffffff;
 }
 /* Main Menu Center */
+
 
 /* Main Menu Bottom */
 .main-menu-bottom {

@@ -55,43 +55,43 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="/assets/pages/dashboard.php">Dashboard</a></li>
+                        <li><a href="/assets/pages/dashboard.php"><i class="fas fa-table"></i> Dashboard</a></li>
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-clock"></i> SessionSync</a>
                             <ul class="submenu">
-                                <li><a href="">Timetable</a></li>
-                                <li><a href="">Time Trampoline</a></li>
-                                <li><a href="">Time Inflatable</a></li>
-                                <li><a href="">Time Bouldering</a></li>
+                                <li><a href="/assets/pages/SessionSync/timetable-edegem.html" target="_blank">Timetable</a></li>
+                                <li><a href="/assets/pages/SessionSync/time-edegem-trampoline.html" target="_blank">Time Trampoline</a></li>
+                                <li><a href="/assets/pages/SessionSync/time-edegem-inflatable.html" target="_blank">Time Inflatable</a></li>
+                                <li><a href="/assets/pages/SessionSync/time-edegem-bouldering.html" target="_blank">Time Bouldering</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-tv"></i> KioskPulse</a>
                             <ul class="submenu">
-                                <li><a href="">Kios</a></li>
-                                <li><a href="">Kiosk Display</a></li>
-                                <li><a href="">Beck-End</a></li>
+                                <li><a href="" target="_blank">Kiosk</a></li>
+                                <li><a href="" target="_blank">Kiosk Display</a></li>
+                                <li><a href="" target="_blank">Kiosk Beck-End</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-book"></i> Upkeepify</a>
                             <ul class="submenu">
-                                <li><a href="">1</a></li>
-                                <li><a href="">2</a></li>
+                                <li><a href="" target="_blank">X</a></li>
+                                <li><a href="" target="_blank">X</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-business-time"></i> Roller</a>
                             <ul class="submenu">
-                                <li><a href="https://manage.roller.app/manage">Roller Dashboard</a></li>
-                                <li><a href="https://pos.roller.app">Roller POS</a></li>
+                                <li><a href="https://manage.roller.app/manage" target="_blank">Roller Dashboard</a></li>
+                                <li><a href="https://pos.roller.app" target="_blank">Roller POS</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-toggle-on"></i> Strobbo</a>
                             <ul class="submenu">
-                                <li><a href="https://login.strobbo.com">Strobbo Home</a></li>
-                                <li><a href="https://app.strobbo.com/LevelUp/TimeClockPIN.aspx?ClockInDevice_owr=0">Strobbo Time Clock</a></li>
+                                <li><a href="https://login.strobbo.com" target="_blank">Strobbo Home</a></li>
+                                <li><a href="https://app.strobbo.com/LevelUp/TimeClockPIN.aspx?ClockInDevice_owr=0" target="_blank">Strobbo Time Clock</a></li>
                             </ul>
                         </li>
                     </ul>

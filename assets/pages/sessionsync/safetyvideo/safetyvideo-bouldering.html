@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--Van Elias De Hondt-->
+<html lang="nl" class="h-full">
+    <head>
+        <!--Meta + Title-->
+        <meta charset="utf-8">
+        <title>Level Up Edegem Safety Video Bouldering</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta property="og:title" content="Level Up Edegem Safety Video Bouldering"/>
+        <!--Meta + Title-->
+        <!--Favicon-->
+        <link href="/assets/media/images/favicon.ico" rel="icon">
+        <!--Favicon-->
+        <!--CSS-->
+        <link rel="stylesheet" href="/assets/css/display-style.css">
+        <!--CSS-->
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="/assets/css/bootstrap.css">
+        <!--Bootstrap-->
+    </head>
+    <body class="w-full h-full">
+        <img style="margin-left: 64px;" src="/assets/media/images/time-bouldering-logo.png" alt="Logo">    
+        <div id="top-right">
+            <div id="clock"></div>
+        </div>
+        <div id="video-container" style="border-radius: 100px">
+            <video id="video" autoplay loop muted>
+                <source src="/assets/media/videos/levelUp-veiligheidsvideo-bouldering-edegem.mp4" type="video/mp4">
+            </video>
+        </div>
+        <!--JS-->
+        <script src="/assets/js/update-clock.js"></script>
+        <script>
+            function loadTimePage() {
+                location.href = "/assets/pages/sessionsync/time-edegem-bouldering.html";
+            }
+        
+            setTimeout(loadTimePage, 126000); // Laad de loadTimePage na 126 seconden (126000 milliseconden)
+        </script>
+        <!--JS-->
+    </body>
+</html>
