@@ -68,9 +68,9 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-tv"></i> KioskPulse</a>
                             <ul class="submenu">
-                                <li><a href="" target="_blank">Kiosk</a></li>
-                                <li><a href="" target="_blank">Kiosk Display</a></li>
-                                <li><a href="" target="_blank">Kiosk Beck-End</a></li>
+                                <li><a href="/assets/pages/kioskpulse/kiosk-index.php" target="_blank">Kiosk</a></li>
+                                <li><a href="/assets/pages/kioskpulse/kiosk-display.php" target="_blank">Kiosk Display</a></li>
+                                <li><a href="/assets/pages/kioskpulse/kiosk-back-end.php" target="_blank">Kiosk Back-End</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
@@ -106,7 +106,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
         </header>
     </body>
     <!--JS-->
-    <script src="/assets/js/submenu_navigation.js"></script>
+    <script src="/assets/js/submenu-navigation.js"></script>
     <!--JS-->
 </html>
 <!--HTML-->

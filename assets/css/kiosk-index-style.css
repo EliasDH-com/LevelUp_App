@@ -1,0 +1,95 @@
+/**
+ * @author Elias De Hondt
+ * @see https://eliasdh.com
+ * @since 01/05/2023
+ */
+
+/* Scrollbars */
+body {
+  --scrollbar-border-thickness: 0px;
+  --scrollbar-width: 10px;
+  --scrollbar-border-radius: 5px;
+  --scrollbar-height: 10px;
+  --show-double-buttons: none;
+}
+body::-webkit-scrollbar {
+  width: var(--scrollbar-width, 20px);
+  height: var(--scrollbar-height, 20px);
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color, #ffffff);
+  border: var(--scrollbar-border-thickness, 3px) solid var(--scrollbar-border-color, #ffffff);
+  border-radius: var(--scrollbar-border-radius, 4px);
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color, #ffffff);
+}
+body::-webkit-scrollbar-corner {
+  background: var(--scrollbar-corner-color, #ffffff);
+  border: var(--scrollbar-border-thickness, 3px) solid var(--scrollbar-border-color, #ffffff);
+  border-radius: var(--scrollbar-border-radius, 4px);
+}
+/* Scrollbars */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #6c757d;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+
+table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+table tr:hover {
+  background-color: #e9ecef;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+a {
+  color: #49B373;
+}

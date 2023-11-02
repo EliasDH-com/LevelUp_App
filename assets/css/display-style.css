@@ -1,0 +1,72 @@
+/**
+ * @author Elias De Hondt
+ * @see https://eliasdh.com
+ * @since 01/05/2023
+ */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+}
+
+p {
+    font-size: 30px;
+}
+
+#clock {
+    font-size: 4rem;
+    color: #ffffff;
+}
+
+#top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ffffff;
+    margin-top: 35px;
+    margin-right: 77px;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+    padding: 20px;
+}
+
+.data-box {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+#video-container {
+    position: absolute;
+    top: 140px; /* Pas dit aan op basis van de hoogte van je bovenste balk */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 140px); /* 150px is de hoogte van de bovenste balk */
+    overflow: hidden;
+}
+
+.message-container {
+    background-color: #49B373;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+    text-align: center;
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
