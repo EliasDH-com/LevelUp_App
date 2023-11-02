@@ -1,2 +1,2 @@
-# Levelup_App_Upkeepify
-The purpose of this application is the maintenance of the various sports clubs of the company in question.
+# Levelup_App
+The purpose of this application is to manage all aspects of the company in question.
