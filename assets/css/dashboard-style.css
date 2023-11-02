@@ -5,11 +5,11 @@
  */
 
 body {
+    background-color: #e5e5e5;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
-
 
 /* Main Menu */
 nav ul {
@@ -24,14 +24,14 @@ nav ul li {
 }
 
 a {
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
 nav ul li a {
+    color: #ffffff;
     padding-top: 10px;
     padding-bottom: 10px;
     text-decoration: none;
-    color: #ffffff;
     display: block;
 }
 
@@ -53,7 +53,6 @@ nav ul li a:hover {
 }
 /* Main Menu */
 
-
 /* Main Menu Top */
 .main-menu-top {
     width: 100%;
@@ -68,7 +67,6 @@ nav ul li a:hover {
     text-transform: capitalize; /* Hoofdlettergebruik */
 }
 /* Main Menu Top */
-
 
 /* Main Menu Center */
 .has-submenu > a {
@@ -115,7 +113,6 @@ nav ul li a:hover {
 }
 /* Main Menu Center */
 
-
 /* Main Menu Bottom */
 .main-menu-bottom {
     display: flex;
@@ -142,3 +139,57 @@ nav ul li a:hover {
     transform: scale(1.30);
 }
 /* Main Menu Bottom */
+
+/* Main Menu Minimize */
+.navigation-bar {
+    transition: width 0.3s;
+}
+
+.navigation-bar.collapsed {
+    width: 40px;
+    overflow: hidden;
+}
+
+.navigation-bar.collapsed nav ul, .navigation-bar.collapsed .main-menu-top {
+    display: none; /* Verberg de navigatie-items, de bovenkant en de onderkant wanneer ingeklapt */
+}
+
+.collapsed .collapse-icon {
+    transform: rotate(180deg) !important;
+}
+/* Main Menu Minimize */
+
+/* Main */
+.main-content {
+    padding-left: 200px; /* Pas deze waarde aan op basis van de hoogte van je navigatiebalk */
+}
+/* Filtered Items */
+/* Algemene opmaak van de tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+th {
+    background-color: #49b373;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: #43a369;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #3b915d;
+    color: #ffffff;
+}
+
+td {
+    padding: 8px;
+}
+/* Filtered Items */

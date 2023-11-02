@@ -22,6 +22,7 @@ if ($conn->connect_error) {
 $zonesQuery = $conn->query("SELECT * FROM zone WHERE zone_id IN (SELECT zone_id FROM user_location WHERE user_id = $user_id)");
 $locationsQuery = $conn->query("SELECT * FROM location WHERE location_id IN (SELECT location_id FROM user_location WHERE user_id = $user_id)");
 $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id FROM item WHERE assigned = $user_id)");
+
 ?>
 <!--PHP-->
 <!--HTML-->
@@ -96,16 +97,63 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                     </ul>
                 </nav>
                 <div class="main-menu-bottom">
+                    <a href="#" id="collapse-button" class="collapse-icon"><i class="fas fa-chevron-left"></i></a>
+                    <a href=""><i class="fas fa-bell"></i></a>
+                    <a href=""><i class="fas fa-user"></i></a>
+                    <a href=""><i class="fas fa-info"></i></a>
                     <a href="/login.php"><i class="fas fa-sign-out-alt"></i></a>
-                    <a href="/settings.php"><i class="fas fa-cog"></i></a>
-                    <a href="/profile.php"><i class="fas fa-user"></i></a>
-                    <a href="/profile.php"><i class="fas fa-bell"></i></a>
                 </div>
             </div>
         </header>
+        <main class="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>Dashboard</h1>
+                        <h2>Filtered Items:</h2>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Assigned</th>
+                                <th>Zone ID</th>
+                            </tr>
+                            <?php // Fetch and display items in a table
+                            while ($item = $itemsQuery->fetch_assoc()) {
+                                echo '<tr>';
+                                echo '<td>' . $item['name'] . '</td>';
+
+                                // Display the status
+                                if ($item['status'] == 0) echo '<td>Not completed</td>';  
+                                elseif ($item['status'] == 1) echo '<td>Completed</td>';
+                                else echo '<td>Status Unknown</td>';
+
+                                // Search for the corresponding user for the assigned task
+                                $userQuery = $conn->query("SELECT username FROM users WHERE user_id = " . $item['assigned']);
+                                
+                                if ($userQuery && $userQuery->num_rows > 0) {
+                                    $user = $userQuery->fetch_assoc();
+                                    echo '<td>' . ucfirst($user['username']) . '</td>'; // To uppercase
+                                } else echo '<td>User not found</td>';
+                                
+                                $zoneQuery = $conn->query("SELECT name FROM zone WHERE zone_id = " . $item['zone_id']);
+
+                                if ($zoneQuery && $zoneQuery->num_rows > 0) {
+                                    $zone = $zoneQuery->fetch_assoc();
+                                    echo '<td>' . ucfirst($zone['name']) . '</td>'; // To uppercase
+                                } else echo '<td>Zone not found</td>';
+
+                                echo '</tr>';
+                            }
+                            ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
     <!--JS-->
-    <script src="/assets/js/submenu-navigation.js"></script>
+    <script src="/assets/js/dynamic -navigation-bar.js"></script>
     <!--JS-->
 </html>
 <!--HTML-->
