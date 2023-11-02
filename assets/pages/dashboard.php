@@ -88,6 +88,12 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                             </ul>
                         </li>
                         <li class="has-submenu">
+                            <a href="#"><i class="fas fa-cash-register"></i> Lightspeed</a>
+                            <ul class="submenu">
+                                <li><a href="https://auth.posios.com/manager" target="_blank">Lightspeed POS</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
                             <a href="#"><i class="fas fa-toggle-on"></i> Strobbo</a>
                             <ul class="submenu">
                                 <li><a href="https://login.strobbo.com" target="_blank">Strobbo Home</a></li>
