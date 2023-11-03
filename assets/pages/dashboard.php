@@ -14,13 +14,8 @@ $username = $_SESSION['username'];
 
 $conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-            
-// Fetch zones and locations associated with the user
-$zonesQuery = $conn->query("SELECT * FROM zone WHERE zone_id IN (SELECT zone_id FROM user_location WHERE user_id = $user_id)");
-$locationsQuery = $conn->query("SELECT * FROM location WHERE location_id IN (SELECT location_id FROM user_location WHERE user_id = $user_id)");
+if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+
 $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id FROM item WHERE assigned = $user_id)");
 
 ?>
@@ -102,11 +97,35 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                         </li>
                     </ul>
                 </nav>
+                <!-- Hidden until activated -->
+                <div class="overlay" id="overlay"></div>
+                <div class="info-window" id="infoWindow">
+                    <h2 id="infoTitleEN" style="display: block;">Overview - Level Up Application Dashboard</h2>
+                    <h2 id="infoTitleNL" style="display: none;">Overzicht - Level Up Applicatiedashboard</h2>
+                    <h2 id="infoTitleFR" style="display: none;">Aperçu - Tableau de bord de l'application Level Up</h2>
+                    <p id="infoContentEN" style="display: block;">
+                        <strong>Purpose:</strong> The Level Up Application Dashboard provides a centralized gateway to various applications used within the company, both internally developed and from external partners. It serves as a central hub for all employees, offering an overview of different applications, enabling simple navigation and access.
+                    </p>
+                    <p id="infoContentNL" style="display: none;">
+                        <strong>Doel:</strong> Het Level Up Applicatiedashboard biedt een gecentraliseerde toegang tot diverse applicaties die worden gebruikt binnen het bedrijf, zowel intern ontwikkeld als door externe partners. Het vormt een centraal punt voor alle medewerkers en biedt een overzicht van verschillende applicaties, waardoor een eenvoudige navigatie en toegang mogelijk is.
+                    </p>
+                    <p id="infoContentFR" style="display: none;">
+                        <strong>Objectif :</strong> Le tableau de bord de l'application Level Up offre une passerelle centralisée vers diverses applications utilisées au sein de l'entreprise, à la fois développées en interne et par des partenaires externes. Il sert de point central pour tous les employés, offrant un aperçu de différentes applications, permettant une navigation et un accès simples.
+                    </p>
+                    <button onclick="openLanguagePopup()">Selecteer Taal</button>
+                    <div class="popup" id="languagePopup">
+                        <button onclick="toggleLanguage('EN')">English</button>
+                        <button onclick="toggleLanguage('NL')">Nederlands</button>
+                        <button onclick="toggleLanguage('FR')">Français</button>
+                    </div>
+                    <button onclick="closeInfoWindow()">Close</button>
+                </div>
+                <!-- Hidden until activated -->
                 <div class="main-menu-bottom">
                     <a href="#" id="collapse-button" class="collapse-icon"><i class="fas fa-chevron-left"></i></a>
-                    <a href=""><i class="fas fa-bell"></i></a>
-                    <a href=""><i class="fas fa-user"></i></a>
-                    <a href=""><i class="fas fa-info"></i></a>
+                    <a href="#"><i class="fas fa-bell"></i></a>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                    <a href="#" onclick="openInfoWindow()"><i class="fas fa-info"></i></a>
                     <a href="/login.php"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
@@ -115,26 +134,30 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1>Dashboard</h1>
-                        <h2>Filtered Items:</h2>
+                        <h2>Items</h2>
+                        <select id="statusFilter">
+                            <option value="all">All Statuses</option>
+                            <option value="Not completed">Not completed</option>
+                            <option value="Completed">Completed</option>
+                            <option value="unknown">Unknown status</option>
+                        </select>
                         <table>
                             <tr>
                                 <th>Name</th>
                                 <th>Status</th>
                                 <th>Assigned</th>
-                                <th>Zone ID</th>
+                                <th>Zone</th>
+                                <th>Location</th>
                             </tr>
                             <?php // Fetch and display items in a table
                             while ($item = $itemsQuery->fetch_assoc()) {
                                 echo '<tr>';
                                 echo '<td>' . $item['name'] . '</td>';
 
-                                // Display the status
                                 if ($item['status'] == 0) echo '<td>Not completed</td>';  
                                 elseif ($item['status'] == 1) echo '<td>Completed</td>';
                                 else echo '<td>Status Unknown</td>';
 
-                                // Search for the corresponding user for the assigned task
                                 $userQuery = $conn->query("SELECT username FROM users WHERE user_id = " . $item['assigned']);
                                 
                                 if ($userQuery && $userQuery->num_rows > 0) {
@@ -149,6 +172,13 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                                     echo '<td>' . ucfirst($zone['name']) . '</td>'; // To uppercase
                                 } else echo '<td>Zone not found</td>';
 
+                                $locationQuery = $conn->query("SELECT name FROM location WHERE location_id = (SELECT location_id FROM zone WHERE zone_id = " . $item['zone_id'] . ")");
+
+                                if ($locationQuery && $locationQuery->num_rows > 0) {
+                                    $location = $locationQuery->fetch_assoc();
+                                    echo '<td>' . ucfirst($location['name']) . '</td>'; // To uppercase
+                                } else echo '<td>Location not found</td>';
+
                                 echo '</tr>';
                             }
                             ?>
@@ -160,6 +190,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
     </body>
     <!--JS-->
     <script src="/assets/js/dynamic-navigation-bar.js"></script>
+    <script src="/assets/js/filters-status-items.js"></script>
     <!--JS-->
 </html>
 <!--HTML-->

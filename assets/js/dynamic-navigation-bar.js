@@ -59,3 +59,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Function to open and close the info window
+function openInfoWindow() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('infoWindow').style.display = 'block';
+}
+
+function closeInfoWindow() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('infoWindow').style.display = 'none';
+}
+
+// Function to toggle the language of the info window
+function openLanguagePopup() {
+    const languagePopup = document.getElementById('languagePopup');
+    languagePopup.style.display = 'block';
+}
+
+function closeLanguagePopup() {
+    const languagePopup = document.getElementById('languagePopup');
+    languagePopup.style.display = 'none';
+}
+
+function toggleLanguage(language) {
+    closeLanguagePopup();
+    
+    const languages = ['EN', 'NL', 'FR'];
+    languages.forEach(lang => {
+        const infoTitle = document.getElementById(`infoTitle${lang}`);
+        const infoContent = document.getElementById(`infoContent${lang}`);
+
+        if (lang === language) {
+            infoTitle.style.display = 'block';
+            infoContent.style.display = 'block';
+        } else {
+            infoTitle.style.display = 'none';
+            infoContent.style.display = 'none';
+        }
+    });
+}

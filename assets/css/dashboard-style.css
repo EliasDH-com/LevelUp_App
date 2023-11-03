@@ -64,7 +64,7 @@ nav ul li a:hover {
     color: #ffffff;
     font-size: 20px;
     font-family: 'Arial', sans-serif;
-    text-transform: capitalize; /* Hoofdlettergebruik */
+    text-transform: capitalize; /* Capitalization */
 }
 /* Main Menu Top */
 
@@ -151,7 +151,7 @@ nav ul li a:hover {
 }
 
 .navigation-bar.collapsed nav ul, .navigation-bar.collapsed .main-menu-top {
-    display: none; /* Verberg de navigatie-items, de bovenkant en de onderkant wanneer ingeklapt */
+    display: none; /* Hide the navigation items, top and bottom when collapsed */
 }
 
 .collapsed .collapse-icon {
@@ -161,12 +161,14 @@ nav ul li a:hover {
 
 /* Main */
 .main-content {
-    padding-left: 200px; /* Pas deze waarde aan op basis van de hoogte van je navigatiebalk */
+    padding-left: 200px; /* Adjust this value based on the height of your navigation bar */
 }
-/* Filtered Items */
-/* Algemene opmaak van de tabel */
+/* Main */
+
+/* Items Table */
 table {
     width: 100%;
+    margin-top: 15px;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
 }
@@ -192,4 +194,118 @@ tr:nth-child(even) {
 td {
     padding: 8px;
 }
-/* Filtered Items */
+/* Items Table */
+
+/* Filter Menu Item */
+select {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    color: #333333;
+    appearance: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 100px;
+}
+
+select option {
+    background-color: #ffffff;
+    color: #333333;
+    transition: all 0.3s;
+}
+
+select:focus {
+    border-color: #49b373;
+    box-shadow: 0 0 5px #49b373;
+    outline: none;
+}
+
+select:hover {
+    border-color: #49b373;
+}
+
+select option:checked {
+    background-color: #49b373;
+    color: #fff;
+}
+/* Filter Menu Item */
+
+/* Overlay Information */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+.info-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    display: none;
+    z-index: 1000;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-window h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.info-window p {
+    font-size: 16px;
+}
+
+.info-window button {
+    padding: 8px 16px;
+    background: #49b373;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-window button:hover {
+    background: #3b915d;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup button {
+    display: block;
+    margin: 10px 0;
+    padding: 8px 16px;
+    background: #49b373;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background: #3b915d;
+}
+
+/* Overlay Information */

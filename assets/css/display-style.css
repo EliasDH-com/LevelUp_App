@@ -44,10 +44,10 @@ p {
 
 #video-container {
     position: absolute;
-    top: 140px; /* Pas dit aan op basis van de hoogte van je bovenste balk */
+    top: 140px; /* Adjust this based on the height of your top bar */
     left: 0;
     width: 100%;
-    height: calc(100% - 140px); /* 150px is de hoogte van de bovenste balk */
+    height: calc(100% - 140px); /* 150px is the height of the top bar */
     overflow: hidden;
 }
 
