@@ -112,7 +112,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                     <p id="infoContentFR" style="display: none;">
                         <strong>Objectif :</strong> Le tableau de bord de l'application Level Up offre une passerelle centralisée vers diverses applications utilisées au sein de l'entreprise, à la fois développées en interne et par des partenaires externes. Il sert de point central pour tous les employés, offrant un aperçu de différentes applications, permettant une navigation et un accès simples.
                     </p>
-                    <button onclick="openLanguagePopup()">Selecteer Taal</button>
+                    <button onclick="openLanguagePopup()">Select Language</button>
                     <div class="popup" id="languagePopup">
                         <button onclick="toggleLanguage('EN')">English</button>
                         <button onclick="toggleLanguage('NL')">Nederlands</button>
