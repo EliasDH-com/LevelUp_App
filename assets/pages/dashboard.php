@@ -159,7 +159,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
         </main>
     </body>
     <!--JS-->
-    <script src="/assets/js/dynamic -navigation-bar.js"></script>
+    <script src="/assets/js/dynamic-navigation-bar.js"></script>
     <!--JS-->
 </html>
 <!--HTML-->

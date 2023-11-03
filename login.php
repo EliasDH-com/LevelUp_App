@@ -29,7 +29,16 @@
       </div>
       <div class="app-name">Level Up App</div>
     </main>
+    <!--Footer-->
+    <footer id="footer"></footer>
+    <!--Footer-->
   </body>
+  <!--JS-->
+  <script src="/assets/js/html-loader.js"></script>
+  <script>
+    loadHTML("footer", "/assets/includes/footer.html");
+  </script>
+  <!--JS-->
 </html>
 <!--HTML-->
 <!--PHP-->

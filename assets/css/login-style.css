@@ -27,7 +27,7 @@ body {
     border: 1px solid #e5e5e5;
     width: 320px;
     margin-top: 20px;
-    padding: 20px;
+    padding: 20px 10px 60px 10px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -71,5 +71,5 @@ body {
     display: block;
     margin: 20px auto;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
 }
