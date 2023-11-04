@@ -63,8 +63,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //****************************************************************************************************//
 
+// Function showing all notifications from the user in question
+function openNotificationsPopup() {
+    toggleStickyPositionTable(); // This function is defined in assets/js/filters-items.js
+    document.getElementById('overlay').style.display = 'block';
+    const notificationsPopup = document.getElementById('notificationsPopup');
+    notificationsPopup.style.display = 'block';
+    getNotifications(userId);
+}
+
+function closeNotificationsPopup() {
+    toggleStickyPositionTable(); // This function is defined in assets/js/filters-items.js
+    document.getElementById('overlay').style.display = 'none';
+    const notificationsPopup = document.getElementById('notificationsPopup');
+    notificationsPopup.style.display = 'none';
+}
+
+function getNotifications(userId) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const notifications = JSON.parse(xhr.responseText);
+                displayNotifications(notifications);
+            }
+        }
+    };
+
+    xhr.open('GET', '/assets/php/get_user_notifications.php?user_id=' + userId, true);
+    xhr.send();
+}
+
+function displayNotifications(notifications) {
+    const notificationsText = document.getElementById('notifications');
+    notificationsText.innerHTML = '';
+
+    for (const key in notifications) {
+        if (notifications.hasOwnProperty(key)) {
+            const notification = notifications[key];
+            notificationsText.innerHTML += `<strong>${notification['title']}</strong><br>${notification['content']}<br><br>`;
+        }
+    }
+}
+//****************************************************************************************************//
+
 // Function to open and close the user info popup window
 function openUserInfoPopup() {
+    toggleStickyPositionTable(); // This function is defined in assets/js/filters-items.js
     const userInfoPopup = document.getElementById('userInfoPopup');
     document.getElementById('overlay').style.display = 'block';
     userInfoPopup.style.display = 'block';
@@ -72,6 +118,7 @@ function openUserInfoPopup() {
 }
 
 function closeUserInfoPopup() {
+    toggleStickyPositionTable(); // This function is defined in assets/js/filters-items.js
     const userInfoPopup = document.getElementById('userInfoPopup');
     document.getElementById('overlay').style.display = 'none';
     userInfoPopup.style.display = 'none';
@@ -118,11 +165,13 @@ function displayUserInfo(userInfo) {
 
 // Function to open and close the info window
 function openInfoWindow() {
+    toggleStickyPositionTable(); // This function is defined in assets/js/filters-items.js
     document.getElementById('overlay').style.display = 'block';
     document.getElementById('infoWindow').style.display = 'block';
 }
 
 function closeInfoWindow() {
+    toggleStickyPositionTable(); // This function is defined in assets/js/filters-items.js
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('infoWindow').style.display = 'none';
 }
@@ -143,47 +192,4 @@ function changeLanguage(selectedLanguage) {
     });
 }
 
-//****************************************************************************************************//
-
-// Function showing all notifications from the user in question
-function openNotificationsPopup() {
-    document.getElementById('overlay').style.display = 'block';
-    const notificationsPopup = document.getElementById('notificationsPopup');
-    notificationsPopup.style.display = 'block';
-    getNotifications(userId);
-}
-
-function closeNotificationsPopup() {
-    document.getElementById('overlay').style.display = 'none';
-    const notificationsPopup = document.getElementById('notificationsPopup');
-    notificationsPopup.style.display = 'none';
-}
-
-function getNotifications(userId) {
-    const xhr = new XMLHttpRequest();
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                const notifications = JSON.parse(xhr.responseText);
-                displayNotifications(notifications);
-            }
-        }
-    };
-
-    xhr.open('GET', '/assets/php/get_user_notifications.php?user_id=' + userId, true);
-    xhr.send();
-}
-
-function displayNotifications(notifications) {
-    const notificationsText = document.getElementById('notifications');
-    notificationsText.innerHTML = '';
-
-    for (const key in notifications) {
-        if (notifications.hasOwnProperty(key)) {
-            const notification = notifications[key];
-            notificationsText.innerHTML += `<strong>${notification['title']}</strong><br>${notification['content']}<br><br>`;
-        }
-    }
-}
 //****************************************************************************************************//

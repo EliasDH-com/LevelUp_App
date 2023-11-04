@@ -159,81 +159,7 @@ nav ul li a:hover {
 }
 /* Main Menu Minimize */
 
-/* Main */
-.main-content {
-    padding-left: 200px; /* Adjust this value based on the height of your navigation bar */
-}
-/* Main */
-
-/* Items Table */
-table {
-    width: 100%;
-    margin-top: 15px;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-}
-
-th {
-    background-color: #49b373;
-    color: #ffffff;
-    font-weight: bold;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(odd) {
-    background-color: #43a369;
-    color: #ffffff;
-}
-
-tr:nth-child(even) {
-    background-color: #3b915d;
-    color: #ffffff;
-}
-
-td {
-    padding: 8px;
-}
-/* Items Table */
-
-/* Filter Menu Item */
-select {
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    color: #333333;
-    appearance: none;
-    padding: 8px;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 200px;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin: 100px;
-}
-
-select option {
-    background-color: #ffffff;
-    color: #333333;
-    transition: all 0.3s;
-}
-
-select:focus {
-    border-color: #49b373;
-    box-shadow: 0 0 5px #49b373;
-    outline: none;
-}
-
-select:hover {
-    border-color: #49b373;
-}
-
-select option:checked {
-    background-color: #49b373;
-    color: #fff;
-}
-/* Filter Menu Item */
-
-/* Overlay Information */
+/* Pop Up Window */
 .overlay {
     position: fixed;
     top: 0;
@@ -279,4 +205,101 @@ select option:checked {
 .info-user-bell-window button:hover {
     background: #3b915d;
 }
-/* Overlay Information */
+/* Pop Up Window */
+
+/* Main */
+.main-content {
+    padding-left: 200px;
+}
+/* Main */
+
+/* Items Table */
+.table-container {
+    margin-top: 15px;
+    height: 80%;
+    overflow: auto;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #49b373;
+    border-radius: 100px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.table-attributes {
+    background-color: #49b373;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    top: 0;
+    z-index: 1;
+}
+
+.sticky {
+    position: sticky;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #43a369;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #3b915d;
+    color: #ffffff;
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid #dddddd;
+}
+/* Items Table */
+
+
+/* Filter Menu Item */
+select {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    color: #333333;
+    appearance: none;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 100px;
+}
+
+select option {
+    background-color: #ffffff;
+    color: #333333;
+    transition: all 0.3s;
+}
+
+select:focus {
+    border-color: #49b373;
+    box-shadow: 0 0 5px #49b373;
+    outline: none;
+}
+
+select:hover {
+    border-color: #49b373;
+}
+
+select option:checked {
+    background-color: #49b373;
+    color: #fff;
+}
+/* Filter Menu Item */
