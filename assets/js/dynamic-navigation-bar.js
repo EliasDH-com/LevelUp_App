@@ -4,6 +4,7 @@
  * @since 31/10/2023
  */
 
+
 // Function to add the active class to the current page in the navigation bar and open the submenu
 document.addEventListener('DOMContentLoaded', function() {
     const submenuItems = document.querySelectorAll('.has-submenu');
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
 // Function to adjust the padding of the main content
 document.addEventListener('DOMContentLoaded', function() {
     const navigationBar = document.querySelector('.navigation-bar');
@@ -60,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 // Function to open and close the info window
 function openInfoWindow() {
     document.getElementById('overlay').style.display = 'block';
@@ -70,6 +73,7 @@ function closeInfoWindow() {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('infoWindow').style.display = 'none';
 }
+
 
 // Function to toggle the language of the info window
 function openLanguagePopup() {
