@@ -171,7 +171,7 @@ function getNotifications(userId) {
         }
     };
 
-    xhr.open('GET', '/assets/php/get_notifications.php?user_id=' + userId, true);
+    xhr.open('GET', '/assets/php/get_user_notifications.php?user_id=' + userId, true);
     xhr.send();
 }
 
