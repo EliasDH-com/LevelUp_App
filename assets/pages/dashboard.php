@@ -5,7 +5,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /login.php");
+    header("Location: /login.html");
     exit();
 }
 
@@ -126,7 +126,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                     <a href="#"><i class="fas fa-bell"></i></a>
                     <a href="#"><i class="fas fa-user"></i></a>
                     <a href="#" onclick="openInfoWindow()"><i class="fas fa-info"></i></a>
-                    <a href="/login.php"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="/login.html"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </header>

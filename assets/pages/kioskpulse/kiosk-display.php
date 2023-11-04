@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<!--Van Elias De Hondt-->
 <!--PHP-->
 <?php
 function displayOrders($filename) {
@@ -20,9 +22,7 @@ function displayOrders($filename) {
 }
 ?>
 <!--PHP-->
-
-<!DOCTYPE html>
-<!--Van Elias De Hondt-->
+<!--HTML-->
 <html lang="en">
   <head>
       <!--Meta + Title-->
@@ -72,3 +72,4 @@ function displayOrders($filename) {
     <!--JS-->
   </body>
 </html>
+<!--HTML-->
