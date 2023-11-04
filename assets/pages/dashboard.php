@@ -206,7 +206,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
     <!--JS-->
     <script> const userId = "<?php echo $user_id; ?>"; </script> <!-- Pass user id to JS -->
     <script src="/assets/js/dynamic-navigation-bar.js"></script>
-    <script src="/assets/js/filters-status-items.js"></script>
+    <script src="/assets/js/filters-items.js"></script>
     <!--JS-->
 </html>
 <!--HTML-->
