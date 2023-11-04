@@ -97,9 +97,17 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                         </li>
                     </ul>
                 </nav>
-                <!-- Hidden until activated -->
+                <!--Hidden until user icon is pressed-->
                 <div class="overlay" id="overlay"></div>
-                <div class="info-window" id="infoWindow">
+                <div class="info-user-bell-window" id="userInfoPopup" style="display: none;">
+                    <h2>User Information</h2>
+                    <p id="userInfo"></p>
+                    <button onclick="closeUserInfoPopup()">Close</button>
+                </div>
+                <!--Hidden until user icon is pressed-->
+                <!--Hidden until info icon is pressed-->
+                <div class="overlay" id="overlay"></div>
+                <div class="info-user-bell-window" id="infoWindow">
                     <h2 id="infoTitleEN" style="display: block;">Overview - Level Up Application Dashboard</h2>
                     <h2 id="infoTitleNL" style="display: none;">Overzicht - Level Up Applicatiedashboard</h2>
                     <h2 id="infoTitleFR" style="display: none;">Aperçu - Tableau de bord de l'application Level Up</h2>
@@ -112,19 +120,18 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                     <p id="infoContentFR" style="display: none;">
                         <strong>Objectif :</strong> Le tableau de bord de l'application Level Up offre une passerelle centralisée vers diverses applications utilisées au sein de l'entreprise, à la fois développées en interne et par des partenaires externes. Il sert de point central pour tous les employés, offrant un aperçu de différentes applications, permettant une navigation et un accès simples.
                     </p>
-                    <button onclick="openLanguagePopup()">Select Language</button>
-                    <div class="popup" id="languagePopup">
-                        <button onclick="toggleLanguage('EN')">English</button>
-                        <button onclick="toggleLanguage('NL')">Nederlands</button>
-                        <button onclick="toggleLanguage('FR')">Français</button>
-                    </div>
                     <button onclick="closeInfoWindow()">Close</button>
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="EN">English</option>
+                        <option value="NL">Nederlands</option>
+                        <option value="FR">Français</option>
+                    </select>
                 </div>
-                <!-- Hidden until activated -->
+                <!--Hidden until info icon is pressed-->
                 <div class="main-menu-bottom">
                     <a href="#" id="collapse-button" class="collapse-icon"><i class="fas fa-chevron-left"></i></a>
                     <a href="#"><i class="fas fa-bell"></i></a>
-                    <a href="#"><i class="fas fa-user"></i></a>
+                    <a href="#" onclick="openUserInfoPopup()"><i class="fas fa-user"></i></a>
                     <a href="#" onclick="openInfoWindow()"><i class="fas fa-info"></i></a>
                     <a href="/login.html"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
@@ -137,7 +144,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                         <h2>Items</h2>
                         <select id="statusFilter">
                             <option value="all">All Statuses</option>
-                            <option value="Not completed">Not completed</option>
+                            <option value="Incomplete">Incomplete</option>
                             <option value="Completed">Completed</option>
                             <option value="unknown">Unknown status</option>
                         </select>
@@ -154,7 +161,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                                 echo '<tr>';
                                 echo '<td>' . $item['name'] . '</td>';
 
-                                if ($item['status'] == 0) echo '<td>Not completed</td>';  
+                                if ($item['status'] == 0) echo '<td>Incomplete</td>';  
                                 elseif ($item['status'] == 1) echo '<td>Completed</td>';
                                 else echo '<td>Status Unknown</td>';
 
@@ -189,6 +196,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
         </main>
     </body>
     <!--JS-->
+    <script> const userId = "<?php echo $user_id; ?>"; </script> <!-- Pass user id to JS -->
     <script src="/assets/js/dynamic-navigation-bar.js"></script>
     <script src="/assets/js/filters-status-items.js"></script>
     <!--JS-->

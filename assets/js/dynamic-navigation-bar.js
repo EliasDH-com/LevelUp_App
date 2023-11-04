@@ -4,6 +4,7 @@
  * @since 31/10/2023
  */
 
+//****************************************************************************************************//
 
 // Function to add the active class to the current page in the navigation bar and open the submenu
 document.addEventListener('DOMContentLoaded', function() {
@@ -11,14 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const collapseButton = document.getElementById('collapse-button');
     const navigationBar = document.querySelector('.navigation-bar');
 
-    // Eventlistener voor collapse button
     collapseButton.addEventListener('click', function(e) {
         e.preventDefault();
         navigationBar.classList.toggle('collapsed');
-        // Toggle de class 'collapsed' op de navigation-bar
     });
 
-    // Eventlisteners voor submenu's
     submenuItems.forEach(function(submenuItem) {
         submenuItem.addEventListener('click', function(e) {
             const submenu = submenuItem.querySelector('.submenu');
@@ -46,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+//****************************************************************************************************//
 
 // Function to adjust the padding of the main content
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,6 +61,60 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+//****************************************************************************************************//
+
+// Function to open and close the user info popup window & edit user info
+function openUserInfoPopup() {
+    const userInfoPopup = document.getElementById('userInfoPopup');
+    document.getElementById('overlay').style.display = 'block';
+    userInfoPopup.style.display = 'block';
+    getUserInfo(userId); // Verander het ID hier als nodig
+}
+
+function getUserInfo(userId) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const userInfo = JSON.parse(xhr.responseText);
+                displayUserInfo(userInfo);
+            }
+        }
+    };
+
+    xhr.open('GET', '/assets/php/get_user_information.php?user_id=' + userId, true);
+    xhr.send();
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function capitalizeAttribute(attribute) {
+    return attribute.charAt(0).toUpperCase() + attribute.slice(1).toLowerCase();
+}
+
+function displayUserInfo(userInfo) {
+    const userInfoText = document.getElementById('userInfo');
+    userInfoText.innerHTML = '';
+
+    for (const key in userInfo) {
+        if (userInfo.hasOwnProperty(key)) {
+            const capitalizedKey = capitalizeAttribute(key);
+            const capitalizedValue = capitalizeFirstLetter(userInfo[key]);
+            userInfoText.innerHTML += `<strong>${capitalizedKey}:</strong> ${capitalizedValue}<br>`;
+        }
+    }
+}
+
+function closeUserInfoPopup() {
+    const userInfoPopup = document.getElementById('userInfoPopup');
+    document.getElementById('overlay').style.display = 'none';
+    userInfoPopup.style.display = 'none';
+}
+
+//****************************************************************************************************//
 
 // Function to open and close the info window
 function openInfoWindow() {
@@ -74,6 +127,7 @@ function closeInfoWindow() {
     document.getElementById('infoWindow').style.display = 'none';
 }
 
+//****************************************************************************************************//
 
 // Function to toggle the language of the info window
 function openLanguagePopup() {
@@ -86,15 +140,13 @@ function closeLanguagePopup() {
     languagePopup.style.display = 'none';
 }
 
-function toggleLanguage(language) {
-    closeLanguagePopup();
-    
+function changeLanguage(selectedLanguage) {
     const languages = ['EN', 'NL', 'FR'];
     languages.forEach(lang => {
         const infoTitle = document.getElementById(`infoTitle${lang}`);
         const infoContent = document.getElementById(`infoContent${lang}`);
 
-        if (lang === language) {
+        if (lang === selectedLanguage) {
             infoTitle.style.display = 'block';
             infoContent.style.display = 'block';
         } else {
@@ -103,3 +155,5 @@ function toggleLanguage(language) {
         }
     });
 }
+
+//****************************************************************************************************//

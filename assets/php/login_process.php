@@ -1,4 +1,3 @@
-<!--PHP-->
 <?php
 /**
  * @author Elias De Hondt
@@ -29,4 +28,3 @@ if(isset($_POST['login_post'])) {
   }
 }
 ?>
-<!--PHP-->
