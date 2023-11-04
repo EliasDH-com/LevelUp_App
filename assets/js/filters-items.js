@@ -19,7 +19,6 @@ function toggleStickyPositionTable() {
     });
 }
 
-
 //****************************************************************************************************//
 
 // Function to toggle the visibility of the table attributes

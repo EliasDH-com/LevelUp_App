@@ -106,6 +106,7 @@ function displayNotifications(notifications) {
         }
     }
 }
+
 //****************************************************************************************************//
 
 // Function to open and close the user info popup window
