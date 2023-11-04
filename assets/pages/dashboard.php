@@ -97,6 +97,14 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                         </li>
                     </ul>
                 </nav>
+                <!--Hidden until bell icon is pressed-->
+                <div class="overlay" id="overlay"></div>
+                <div class="info-user-bell-window" id="notificationsPopup" style="display: none;">
+                    <h2>Notifications</h2>
+                    <p id="notifications"></p>
+                    <button onclick="closeNotificationsPopup()">Close</button>
+                </div>
+                <!--Hidden until bell icon is pressed-->
                 <!--Hidden until user icon is pressed-->
                 <div class="overlay" id="overlay"></div>
                 <div class="info-user-bell-window" id="userInfoPopup" style="display: none;">
@@ -130,7 +138,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                 <!--Hidden until info icon is pressed-->
                 <div class="main-menu-bottom">
                     <a href="#" id="collapse-button" class="collapse-icon"><i class="fas fa-chevron-left"></i></a>
-                    <a href="#"><i class="fas fa-bell"></i></a>
+                    <a href="#" onclick="openNotificationsPopup()"><i class="fas fa-bell"></i></a>
                     <a href="#" onclick="openUserInfoPopup()"><i class="fas fa-user"></i></a>
                     <a href="#" onclick="openInfoWindow()"><i class="fas fa-info"></i></a>
                     <a href="/login.html"><i class="fas fa-sign-out-alt"></i></a>
