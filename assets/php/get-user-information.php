@@ -5,9 +5,7 @@
  * @since 31/10/2023
  */
 
-$conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
-
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+include '../../assets/php/database.php';
 
 
 if (isset($_GET['user_id'])) {

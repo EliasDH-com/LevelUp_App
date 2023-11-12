@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <!--Van Elias De Hondt-->
 <!--PHP-->
-<?php
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: /login.html");
-    exit();
-}
-
-$user_id = $_SESSION['user_id'];
-$username = $_SESSION['username'];
-
-$conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
-
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+<?php include '../../php/database.php'; 
 
 $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id FROM item WHERE assigned = $user_id)");
-
 ?>
 <!--PHP-->
 <!--HTML-->
@@ -55,8 +41,8 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-book"></i> Upkeepify</a>
                             <ul class="submenu">
-                                <li><a href="/assets/pages/upkeepify/add-user.php">Add users</a></li>
-                                <li><a href="/assets/pages/upkeepify/view-items.php">View items</a></li>
+                                <li><a href="/assets/pages/upkeepify/add-user.php">Add Users</a></li>
+                                <li><a href="/assets/pages/upkeepify/view-items.php">View Items</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
@@ -152,7 +138,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h2>Items</h2>
+                        <h1>Items</h1>
                         <select id="statusFilter">
                             <option value="all">All Statuses</option>
                             <option value="Incomplete">Incomplete</option>
@@ -168,6 +154,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                                     <th class="table-attributes sticky">Zone</th>
                                     <th class="table-attributes sticky">Location</th>
                                 </tr>
+                                <!--PHP-->
                                 <?php // Fetch and display items in a table
                                 while ($item = $itemsQuery->fetch_assoc()) {
                                     echo '<tr>';
@@ -201,6 +188,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                                     echo '</tr>';
                                 }
                                 ?>
+                                <!--PHP-->
                             </table>
                         </div>
                     </div>

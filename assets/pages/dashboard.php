@@ -1,22 +1,7 @@
 <!DOCTYPE html>
 <!--Van Elias De Hondt-->
 <!--PHP-->
-<?php
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: /login.html");
-    exit();
-}
-
-$user_id = $_SESSION['user_id'];
-$username = $_SESSION['username'];
-
-$conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
-
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
-
-?>
+<?php include '../php/database.php'; ?>
 <!--PHP-->
 <!--HTML-->
 <html lang="en">
@@ -53,8 +38,8 @@ if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-book"></i> Upkeepify</a>
                             <ul class="submenu">
-                                <li><a href="/assets/pages/upkeepify/add-user.php">Add users</a></li>
-                                <li><a href="/assets/pages/upkeepify/view-items.php">View items</a></li>
+                                <li><a href="/assets/pages/upkeepify/add-user.php">Add Users</a></li>
+                                <li><a href="/assets/pages/upkeepify/view-items.php">View Items</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">

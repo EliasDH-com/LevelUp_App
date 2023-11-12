@@ -9,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 * {
     font-family: 'Arial', sans-serif;
 }
@@ -20,6 +21,12 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
     background-color: #49b373;
     border-radius: 100px;
+}
+
+.main-content h1 {
+    color: #49b373;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
 /* Main Menu */
@@ -366,8 +373,9 @@ select option:checked {
     color: #ffffff;
 }
 
-/* Adjust the margin between buttons as needed */
+
 .button + .button {
     margin-left: 10px;
 }
 /* Custom Button Styles */
+

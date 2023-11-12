@@ -1,0 +1,60 @@
+/**
+ * @author Elias De Hondt
+ * @see https://eliasdh.com
+ * @since 31/10/2023
+ */
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Content Styles */
+.main-content h1 {
+    color: #49b373;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+/* Main Content Styles */
+
+/* Form Styles */
+.main-content label {
+    margin: 8px 0;
+    font-weight: bold;
+}
+
+.main-content input {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.main-content input:focus {
+    outline: none;
+    border-color: #49b373;
+}
+
+.main-content button {
+    background-color: #49b373;
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.main-content button:hover {
+    background-color: #43a369;
+}
+/* Form Styles */
