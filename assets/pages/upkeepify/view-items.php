@@ -16,6 +16,8 @@ $conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
 
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
+$itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id FROM item WHERE assigned = $user_id)");
+
 ?>
 <!--PHP-->
 <!--HTML-->
@@ -23,7 +25,7 @@ if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
     <head>
         <!--Meta + Title-->
         <meta charset="utf-8">
-        <title>Level Up - Dashboard</title>
+        <title>Level Up - View Items</title>
         <meta property="og:title" content="Level Up Upkeepify"/>
         <!--Meta + Title-->
         <!--Favicon-->
@@ -150,54 +152,56 @@ if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1>Service Status</h1>
-                        <ul class="status-list">
-                            <li class="service-item">
-                                <span class="service-name">Upkeepify</span>
-                                <span class="service-status service-issues">Experiencing Issues</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">SessionSync</span>
-                                <span class="service-status service-operational">Operational</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">KioskPulse</span>
-                                <span class="service-status service-operational">Operational</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">Roller</span>
-                                <span class="service-status service-operational">Operational</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">Lightspeed</span>
-                                <span class="service-status service-operational">Operational</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">Strobbo</span>
-                                <span class="service-status service-issues">Experiencing Issues</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">Level Up Entrance computer 1</span>
-                                <span class="service-status service-operational">Operational</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">Level Up Entrance computer 2</span>
-                                <span class="service-status service-operational">Operational</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">Level Up Entrance computer 3</span>
-                                <span class="service-status service-operational">Operational</span>
-                            </li>
-                            <li class="service-item">
-                                <span class="service-name">Ter Eiken Entrance computer 1</span>
-                                <span class="service-status service-operational">Operational</span>
-                            </li>
-                        </ul>
-                        <br>
-                        <h1>Local Pages</h1>
-                        <div class="local-pages">
-                            <a href="https://192.168.20.23:18080" target="_blank" class="button">Eocortex Web Client</a>
-                            <a href="http://192.168.20.25:5544" target="_blank" class="button">Loxone Web Client</a>
+                        <h2>Items</h2>
+                        <select id="statusFilter">
+                            <option value="all">All Statuses</option>
+                            <option value="Incomplete">Incomplete</option>
+                            <option value="Completed">Completed</option>
+                            <option value="unknown">Unknown status</option>
+                        </select>
+                        <div class="table-container">
+                            <table>
+                                <tr>
+                                    <th class="table-attributes sticky">Name</th>
+                                    <th class="table-attributes sticky">Status</th>
+                                    <th class="table-attributes sticky">Assigned</th>
+                                    <th class="table-attributes sticky">Zone</th>
+                                    <th class="table-attributes sticky">Location</th>
+                                </tr>
+                                <?php // Fetch and display items in a table
+                                while ($item = $itemsQuery->fetch_assoc()) {
+                                    echo '<tr>';
+                                    echo '<td>' . $item['name'] . '</td>';
+
+                                    if ($item['status'] == 0) echo '<td>Incomplete</td>';  
+                                    elseif ($item['status'] == 1) echo '<td>Completed</td>';
+                                    else echo '<td>Status Unknown</td>';
+
+                                    $userQuery = $conn->query("SELECT username FROM users WHERE user_id = " . $item['assigned']);
+                                    
+                                    if ($userQuery && $userQuery->num_rows > 0) {
+                                        $user = $userQuery->fetch_assoc();
+                                        echo '<td>' . ucfirst($user['username']) . '</td>'; // To uppercase
+                                    } else echo '<td>User not found</td>';
+                                    
+                                    $zoneQuery = $conn->query("SELECT name FROM zone WHERE zone_id = " . $item['zone_id']);
+
+                                    if ($zoneQuery && $zoneQuery->num_rows > 0) {
+                                        $zone = $zoneQuery->fetch_assoc();
+                                        echo '<td>' . ucfirst($zone['name']) . '</td>'; // To uppercase
+                                    } else echo '<td>Zone not found</td>';
+
+                                    $locationQuery = $conn->query("SELECT name FROM location WHERE location_id = (SELECT location_id FROM zone WHERE zone_id = " . $item['zone_id'] . ")");
+
+                                    if ($locationQuery && $locationQuery->num_rows > 0) {
+                                        $location = $locationQuery->fetch_assoc();
+                                        echo '<td>' . ucfirst($location['name']) . '</td>'; // To uppercase
+                                    } else echo '<td>Location not found</td>';
+
+                                    echo '</tr>';
+                                }
+                                ?>
+                            </table>
                         </div>
                     </div>
                 </div>

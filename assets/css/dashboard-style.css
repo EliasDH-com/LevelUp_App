@@ -217,12 +217,6 @@ nav ul li a:hover {
 }
 /* Pop Up Window */
 
-/* Main */
-.main-content {
-    padding-left: 200px;
-}
-/* Main */
-
 /* Items Table */
 .table-container {
     margin-top: 15px;
@@ -311,3 +305,69 @@ select option:checked {
     color: #fff;
 }
 /* Filter Menu Item */
+
+/* Service Status */
+.main-content {
+    padding: 20px; /* Add padding as needed */
+}
+
+.status-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Add border as needed */
+    border-radius: 5px;
+}
+
+.service-name {
+    flex: 1;
+}
+
+.service-status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.service-operational {
+    color: #008000;
+    background-color: #dff0d8;
+}
+
+.service-issues {
+    color: #ff0000;
+    background-color: #f2dede;
+}
+/* Service Status */
+
+/* Custom Button Styles */
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #49b373;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #43a369;
+    color: #ffffff;
+}
+
+/* Adjust the margin between buttons as needed */
+.button + .button {
+    margin-left: 10px;
+}
+/* Custom Button Styles */
