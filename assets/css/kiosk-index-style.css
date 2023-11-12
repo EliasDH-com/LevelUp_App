@@ -30,6 +30,7 @@ body::-webkit-scrollbar-corner {
   border-radius: var(--scrollbar-border-radius, 4px);
 }
 /* Scrollbars */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #ffffff;

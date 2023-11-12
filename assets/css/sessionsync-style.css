@@ -7,6 +7,7 @@
 .clock {
     color: #ffffff;
 }
+
 /* Scrollbars */
 body {
   --scrollbar-border-thickness: 0px;
@@ -33,6 +34,7 @@ body::-webkit-scrollbar-corner {
   border-radius: var(--scrollbar-border-radius, 4px);
 }
 /* Scrollbars */
+
 /* Table */
 h2 {
     font-size: 30px;
@@ -48,6 +50,7 @@ td, th {
   padding: 8px;
 }
 /* Table */
+
 /* Color */
 .bg-black {
   --bg-opacity: 1;
