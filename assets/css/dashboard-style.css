@@ -277,39 +277,29 @@ td {
 /* Items Table */
 
 /* Filter Menu Item */
-select {
-    background-color: #ffffff;
+.main-content select {
+    padding: 12px;
     border: 1px solid #cccccc;
-    color: #333333;
-    appearance: none;
-    padding: 8px;
-    border-radius: 5px;
+    border-radius: 4px;
+    margin-bottom: 16px;
     width: 100%;
-    max-width: 200px;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin: 100px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 13.95l-4.95-4.95a1 1 0 011.414-1.414L10 11.122l4.243-4.586a1 1 0 111.496 1.32l-4.95 5.334a1 1 0 01-1.494 0z" fill="%2349b373"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
 }
 
-select option {
+.main-content select:focus {
+    outline: none;
+    border-color: #49b373;
+}
+
+.main-content select option {
     background-color: #ffffff;
     color: #333333;
-    transition: all 0.3s;
-}
-
-select:focus {
-    border-color: #49b373;
-    box-shadow: 0 0 5px #49b373;
-    outline: none;
-}
-
-select:hover {
-    border-color: #49b373;
-}
-
-select option:checked {
-    background-color: #49b373;
-    color: #fff;
 }
 /* Filter Menu Item */
 

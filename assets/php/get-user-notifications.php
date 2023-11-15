@@ -8,4 +8,6 @@
 include '../../assets/php/database.php';
 
 
+
+$conn->close();
 ?>

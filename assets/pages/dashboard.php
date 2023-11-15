@@ -9,7 +9,7 @@
         <!--Meta + Title-->
         <meta charset="utf-8">
         <title>Level Up - Dashboard</title>
-        <meta property="og:title" content="Level Up Upkeepify"/>
+        <meta property="og:title" content="Level Up - Dashboard"/>
         <!--Meta + Title-->
         <!--Favicon-->
         <link href="/assets/media/images/favicon.ico" rel="icon">
@@ -39,6 +39,7 @@
                             <a href="#"><i class="fas fa-book"></i> Upkeepify</a>
                             <ul class="submenu">
                                 <li><a href="/assets/pages/upkeepify/add-user.php">Add Users</a></li>
+                                <li><a href="/assets/pages/upkeepify/add-item.php">Add Items</a></li>
                                 <li><a href="/assets/pages/upkeepify/view-items.php">View Items</a></li>
                             </ul>
                         </li>
@@ -198,7 +199,7 @@
     </body>
     <!--JS-->
     <script> const userId = "<?php echo $user_id; ?>"; </script> <!-- Pass user id to JS -->
-    <script src="/assets/js/filters-items.js"></script>
+    <script src="/assets/js/toggle-sticky.js"></script>
     <script src="/assets/js/dynamic-navigation-bar.js"></script>
     <!--JS-->
 </html>

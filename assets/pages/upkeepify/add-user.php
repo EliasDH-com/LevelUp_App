@@ -9,14 +9,14 @@
         <!--Meta + Title-->
         <meta charset="utf-8">
         <title>Level Up - Add User</title>
-        <meta property="og:title" content="Level Up Upkeepify"/>
+        <meta property="og:title" content="Level Up - Add User"/>
         <!--Meta + Title-->
         <!--Favicon-->
         <link href="/assets/media/images/favicon.ico" rel="icon">
         <!--Favicon-->
         <!--CSS-->
         <link rel="stylesheet" href="/assets/css/dashboard-style.css">
-        <link rel="stylesheet" href="/assets/css/add-user-style.css">
+        <link rel="stylesheet" href="/assets/css/add-form-style.css">
         <!--CSS-->
         <!--Bootstrap-->
         <link rel="stylesheet" href="/assets/css/bootstrap.css">
@@ -40,6 +40,7 @@
                             <a href="#"><i class="fas fa-book"></i> Upkeepify</a>
                             <ul class="submenu">
                                 <li><a href="/assets/pages/upkeepify/add-user.php">Add Users</a></li>
+                                <li><a href="/assets/pages/upkeepify/add-item.php">Add Items</a></li>
                                 <li><a href="/assets/pages/upkeepify/view-items.php">View Items</a></li>
                             </ul>
                         </li>
@@ -143,7 +144,7 @@
                 <div class="row">
                     <div class="col">
                         <h1>Add User</h1>
-                        <form action="/assets/php/add-user-information.php" method="post">
+                        <form id="addUserForm">
                             <label for="username">Username:</label>
                             <input type="text" id="username" name="username" required>
 
@@ -152,7 +153,10 @@
 
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email" required>
+                            
                             <button type="submit">Add User</button>
+
+                            <div id="responseMessage"></div>
                         </form>
                     </div>
                 </div>
@@ -162,8 +166,9 @@
     </body>
     <!--JS-->
     <script> const userId = "<?php echo $user_id; ?>"; </script> <!-- Pass user id to JS -->
-    <script src="/assets/js/filters-items.js"></script>
+    <script src="/assets/js/toggle-sticky.js"></script>
     <script src="/assets/js/dynamic-navigation-bar.js"></script>
+    <script src="/assets/js/upkeepify/add-user-information.js"></script>
     <!--JS-->
 </html>
 <!--HTML-->

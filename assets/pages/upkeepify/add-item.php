@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <!--Van Elias De Hondt-->
 <!--PHP-->
-<?php include '../../php/database.php'; 
-
-$itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id FROM item WHERE assigned = $user_id)");
-?>
+<?php include '../../php/database.php'; ?>
 <!--PHP-->
 <!--HTML-->
 <html lang="en">
     <head>
         <!--Meta + Title-->
         <meta charset="utf-8">
-        <title>Level Up - View Items</title>
-        <meta property="og:title" content="Level Up Upkeepify"/>
+        <title>Level Up - Add Item</title>
+        <meta property="og:title" content="Level Up - Add Item"/>
         <!--Meta + Title-->
         <!--Favicon-->
         <link href="/assets/media/images/favicon.ico" rel="icon">
         <!--Favicon-->
         <!--CSS-->
         <link rel="stylesheet" href="/assets/css/dashboard-style.css">
+        <link rel="stylesheet" href="/assets/css/add-form-style.css">
         <!--CSS-->
         <!--Bootstrap-->
         <link rel="stylesheet" href="/assets/css/bootstrap.css">
@@ -145,59 +143,50 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1>Items</h1>
-                        <select id="statusFilter">
-                            <option value="all">All Statuses</option>
-                            <option value="Incomplete">Incomplete</option>
-                            <option value="Completed">Completed</option>
-                            <option value="unknown">Unknown status</option>
-                        </select>
-                        <div class="table-container">
-                            <table>
-                                <tr>
-                                    <th class="table-attributes sticky">Name</th>
-                                    <th class="table-attributes sticky">Status</th>
-                                    <th class="table-attributes sticky">Assigned</th>
-                                    <th class="table-attributes sticky">Zone</th>
-                                    <th class="table-attributes sticky">Location</th>
-                                </tr>
-                                <!--PHP-->
-                                <?php // Fetch and display items in a table
-                                while ($item = $itemsQuery->fetch_assoc()) {
-                                    echo '<tr>';
-                                    echo '<td>' . $item['name'] . '</td>';
+                        <h1>Add Item</h1>
+                        <form id="addItemForm">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name">
 
-                                    if ($item['status'] == 0) echo '<td>Incomplete</td>';  
-                                    elseif ($item['status'] == 1) echo '<td>Completed</td>';
-                                    else echo '<td>Status Unknown</td>';
+                            <label for="zone_id">Zone:</label>
+                            <select id="zone_id" name="zone_id">
+                                <?php
+                                    $zoneQuery = "SELECT * FROM `zone`";
+                                    $zonesResult = $conn->query($zoneQuery);
 
-                                    $userQuery = $conn->query("SELECT username FROM users WHERE user_id = " . $item['assigned']);
-                                    
-                                    if ($userQuery && $userQuery->num_rows > 0) {
-                                        $user = $userQuery->fetch_assoc();
-                                        echo '<td>' . ucfirst($user['username']) . '</td>'; // To uppercase
-                                    } else echo '<td>User not found</td>';
-                                    
-                                    $zoneQuery = $conn->query("SELECT name FROM zone WHERE zone_id = " . $item['zone_id']);
-
-                                    if ($zoneQuery && $zoneQuery->num_rows > 0) {
-                                        $zone = $zoneQuery->fetch_assoc();
-                                        echo '<td>' . ucfirst($zone['name']) . '</td>'; // To uppercase
-                                    } else echo '<td>Zone not found</td>';
-
-                                    $locationQuery = $conn->query("SELECT name FROM location WHERE location_id = (SELECT location_id FROM zone WHERE zone_id = " . $item['zone_id'] . ")");
-
-                                    if ($locationQuery && $locationQuery->num_rows > 0) {
-                                        $location = $locationQuery->fetch_assoc();
-                                        echo '<td>' . ucfirst($location['name']) . '</td>'; // To uppercase
-                                    } else echo '<td>Location not found</td>';
-
-                                    echo '</tr>';
-                                }
+                                    if ($zonesResult->num_rows > 0) {
+                                        while ($row = $zonesResult->fetch_assoc()) {
+                                            echo "<option value='{$row['zone_id']}'>{$row['name']}</option>";
+                                        }
+                                    }
                                 ?>
-                                <!--PHP-->
-                            </table>
-                        </div>
+                            </select>
+
+                            <label for="assigned">Assigned To:</label>
+                            <select id="assigned" name="assigned">
+                                <?php
+                                    $userQuery = "SELECT * FROM `users`";
+                                    $usersResult = $conn->query($userQuery);
+
+                                    if ($usersResult->num_rows > 0) {
+                                        while ($row = $usersResult->fetch_assoc()) {
+                                            echo "<option value='{$row['user_id']}'>{$row['username']}</option>";
+                                        }
+                                    }
+                                    $conn->close();
+                                ?>
+                            </select>
+
+                            <label for="status">Status:</label>
+                            <select id="status" name="status">
+                                <option value="0">Incomplete</option>
+                                <option value="1">Completed</option>
+                            </select>
+
+                            <button type="submit">Add Item</button>
+
+                            <div id="responseMessage"></div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -206,9 +195,9 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
     </body>
     <!--JS-->
     <script> const userId = "<?php echo $user_id; ?>"; </script> <!-- Pass user id to JS -->
-    <script src="/assets/js/upkeepify/filters-items.js"></script>
     <script src="/assets/js/toggle-sticky.js"></script>
     <script src="/assets/js/dynamic-navigation-bar.js"></script>
+    <script src="/assets/js/upkeepify/add-item-information.js"></script>
     <!--JS-->
 </html>
 <!--HTML-->

@@ -7,7 +7,6 @@
 
 include '../../assets/php/database.php';
 
-
 if (isset($_GET['user_id'])) {
     $user_id = $_GET['user_id'];
 
@@ -20,6 +19,5 @@ if (isset($_GET['user_id'])) {
         echo json_encode($user);
     }
 }
-
 $conn->close();
 ?>

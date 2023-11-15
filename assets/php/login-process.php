@@ -15,12 +15,10 @@ if (isset($_POST['login_post'])) {
   $result = mysqli_query($conn, $sql);
 
   if ($result) {
-    // Check of er een overeenkomende gebruiker is
     if (mysqli_num_rows($result) > 0) {
       $row = mysqli_fetch_assoc($result);
       $db_password = $row['password'];
 
-      // Vergelijk het ingevoerde wachtwoord met het gehashte wachtwoord uit de database
       if (password_verify($password, $db_password)) {
         session_start();
         $_SESSION['user_id'] = $row['user_id'];
@@ -31,4 +29,5 @@ if (isset($_POST['login_post'])) {
     }
   }
 }
+$conn->close();
 ?>
