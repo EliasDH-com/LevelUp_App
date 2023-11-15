@@ -101,17 +101,23 @@
                 <!--Hidden until info icon is pressed-->
                 <div class="overlay" id="overlay"></div>
                 <div class="info-user-bell-window" id="infoWindow">
-                    <h2 id="infoTitleEN" style="display: block;">Overview - Level Up Application Dashboard</h2>
-                    <h2 id="infoTitleNL" style="display: none;">Overzicht - Level Up Applicatiedashboard</h2>
-                    <h2 id="infoTitleFR" style="display: none;">Aperçu - Tableau de bord de l'application Level Up</h2>
+                    <h2 id="infoTitleEN" style="display: block;">Overview - Level Up Application</h2>
+                    <h2 id="infoTitleNL" style="display: none;">Overzicht - Level Up Applicatie</h2>
+                    <h2 id="infoTitleFR" style="display: none;">Aperçu - Application Level Up</h2>
                     <p id="infoContentEN" style="display: block;">
-                        <strong>Purpose:</strong> The Level Up Application Dashboard provides a centralized gateway to various applications used within the company, both internally developed and from external partners. It serves as a central hub for all employees, offering an overview of different applications, enabling simple navigation and access.
+                        <strong>Purpose:</strong> The Level Up Application provides a centralized gateway to various applications used within the company, both internally developed and from external partners. It serves as a central hub for all employees, offering an overview of different applications, enabling simple navigation and access.
+                        <br><br>
+                        <strong>Version:</strong> 1.0.0
                     </p>
                     <p id="infoContentNL" style="display: none;">
-                        <strong>Doel:</strong> Het Level Up Applicatiedashboard biedt een gecentraliseerde toegang tot diverse applicaties die worden gebruikt binnen het bedrijf, zowel intern ontwikkeld als door externe partners. Het vormt een centraal punt voor alle medewerkers en biedt een overzicht van verschillende applicaties, waardoor een eenvoudige navigatie en toegang mogelijk is.
+                        <strong>Doel:</strong> Het Level Up Applicatie biedt een gecentraliseerde toegang tot diverse applicaties die worden gebruikt binnen het bedrijf, zowel intern ontwikkeld als door externe partners. Het vormt een centraal punt voor alle medewerkers en biedt een overzicht van verschillende applicaties, waardoor een eenvoudige navigatie en toegang mogelijk is.
+                        <br><br>
+                        <strong>Versie:</strong> 1.0.0
                     </p>
                     <p id="infoContentFR" style="display: none;">
-                        <strong>Objectif :</strong> Le tableau de bord de l'application Level Up offre une passerelle centralisée vers diverses applications utilisées au sein de l'entreprise, à la fois développées en interne et par des partenaires externes. Il sert de point central pour tous les employés, offrant un aperçu de différentes applications, permettant une navigation et un accès simples.
+                        <strong>Objectif:</strong> L'application Level Up offre un accès centralisé à diverses applications utilisées au sein de l'entreprise, tant développées en interne que par des partenaires externes. Il constitue un point central pour tous les employés et donne un aperçu des différentes applications, permettant une navigation et un accès faciles.
+                        <br><br>
+                        <strong>Version:</strong> 1.0.0
                     </p>
                     <button onclick="closeInfoWindow()">Close</button>
                     <select id="languageSelect" onchange="changeLanguage(this.value)">
