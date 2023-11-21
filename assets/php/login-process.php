@@ -5,7 +5,9 @@
  * @since 31/10/2023
  */
 
-include '../../assets/php/database.php';
+$conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
+
+if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
 if (isset($_POST['login_post'])) {
   $email = $_POST['email'];
@@ -25,6 +27,8 @@ if (isset($_POST['login_post'])) {
         $_SESSION['username'] = $row['username'];
 
         header("Location: ../pages/dashboard.php");
+      } else {
+        header("Location: https://eliasdh.com/404");
       }
     }
   }
