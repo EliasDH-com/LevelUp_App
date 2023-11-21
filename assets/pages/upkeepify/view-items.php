@@ -174,6 +174,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                                         <th class="table-attributes sticky">Assigned</th>
                                         <th class="table-attributes sticky">Zone</th>
                                         <th class="table-attributes sticky">Location</th>
+                                        <th class="table-attributes sticky">Deadline</th>
                                         <th class="table-attributes sticky">Status</th>
                                     </tr>
                                     <!--PHP-->
@@ -207,11 +208,12 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                                             echo '<td>' . ucfirst($location['name']) . '</td>'; // To uppercase
                                         } else echo '<td>Location not found</td>';
                                         
-                                        
+                                        echo '<td>' . date('d/m/Y', strtotime($item['deadline'])) . '</td>';
+
                                         if ($item['status'] == 0) {
                                             echo '<td><input type="checkbox" name="completed" value="' . $item['item_id'] . '"></td>';
                                         } else echo '<td></td>';
-
+                                        
                                         echo '</tr>';
                                     }
                                     ?>
