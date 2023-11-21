@@ -348,9 +348,11 @@ td {
 /* Custom Button Styles */
 .button {
     display: inline-block;
+    margin-top: 10px;
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
+    border: none;
     color: #ffffff;
     background-color: #49b373;
     border-radius: 4px;
@@ -369,3 +371,39 @@ td {
 }
 /* Custom Button Styles */
 
+/* Custom Select Styles */
+.select {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    width: 20%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 13.95l-4.95-4.95a1 1 0 011.414-1.414L10 11.122l4.243-4.586a1 1 0 111.496 1.32l-4.95 5.334a1 1 0 01-1.494 0z" fill="%2349b373"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+.select:focus {
+    outline: none;
+    border-color: #49b373;
+}
+
+.select .option {
+    background-color: #ffffff;
+    color: #333333;
+}
+/* Custom Select Styles */
+
+/* Custom EliasDH Styles */
+#infoContentEN a,
+#infoContentNL a,
+#infoContentFR a {
+    color: #4F94EF; /* Blauwe kleur voor links */
+    text-decoration: none; /* Geen onderstreping */
+    margin-right: 10px; /* Afstand tussen links */
+}
+/* Custom EliasDH Styles */

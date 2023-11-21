@@ -111,19 +111,32 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                         <strong>Purpose:</strong> The Level Up Application provides a centralized gateway to various applications used within the company, both internally developed and from external partners. It serves as a central hub for all employees, offering an overview of different applications, enabling simple navigation and access.
                         <br><br>
                         <strong>Version:</strong> 1.0.0
+                        <br><br>
+                        <a href="https://eliasdh.com/assets/pages/privacy-policy.html" target="_blank">EliasDH Privacy Policy</a>
+                        <br>
+                        <a href="https://eliasdh.com/assets/pages/legal-guidelines.html" target="_blank">EliasDH Legal Guidelines</a>
                     </p>
                     <p id="infoContentNL" style="display: none;">
                         <strong>Doel:</strong> Het Level Up Applicatie biedt een gecentraliseerde toegang tot diverse applicaties die worden gebruikt binnen het bedrijf, zowel intern ontwikkeld als door externe partners. Het vormt een centraal punt voor alle medewerkers en biedt een overzicht van verschillende applicaties, waardoor een eenvoudige navigatie en toegang mogelijk is.
                         <br><br>
                         <strong>Versie:</strong> 1.0.0
+                        <br><br>
+                        <a href="https://eliasdh.com/assets/pages/privacy-policy.html" target="_blank">EliasDH Privacybeleid</a>
+                        <br>
+                        <a href="https://eliasdh.com/assets/pages/legal-guidelines.html" target="_blank">EliasDH Juridische Richtlijnen</a>
+
                     </p>
                     <p id="infoContentFR" style="display: none;">
                         <strong>Objectif:</strong> L'application Level Up offre un accès centralisé à diverses applications utilisées au sein de l'entreprise, tant développées en interne que par des partenaires externes. Il constitue un point central pour tous les employés et donne un aperçu des différentes applications, permettant une navigation et un accès faciles.
                         <br><br>
                         <strong>Version:</strong> 1.0.0
+                        <br><br>
+                        <a href="https://eliasdh.com/assets/pages/privacy-policy.html" target="_blank">EliasDH Politique De Confidentialité</a>
+                        <br>
+                        <a href="https://eliasdh.com/assets/pages/legal-guidelines.html" target="_blank">EliasDH Directives Juridiques</a>
                     </p>
                     <button onclick="closeInfoWindow()">Close</button>
-                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                    <select class="select" id="languageSelect" onchange="changeLanguage(this.value)">
                         <option value="EN">English</option>
                         <option value="NL">Nederlands</option>
                         <option value="FR">Français</option>
@@ -153,51 +166,60 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                             <option value="unknown">Unknown status</option>
                         </select>
                         <div class="table-container">
-                            <table>
-                                <tr>
-                                    <th class="table-attributes sticky">Name</th>
-                                    <th class="table-attributes sticky">Status</th>
-                                    <th class="table-attributes sticky">Assigned</th>
-                                    <th class="table-attributes sticky">Zone</th>
-                                    <th class="table-attributes sticky">Location</th>
-                                </tr>
-                                <!--PHP-->
-                                <?php // Fetch and display items in a table
-                                while ($item = $itemsQuery->fetch_assoc()) {
-                                    echo '<tr>';
-                                    echo '<td>' . $item['name'] . '</td>';
+                            <form id="updateItemCompletionForm">
+                                <table>
+                                    <tr>
+                                        <th class="table-attributes sticky">Name</th>
+                                        <th class="table-attributes sticky">Status</th>
+                                        <th class="table-attributes sticky">Assigned</th>
+                                        <th class="table-attributes sticky">Zone</th>
+                                        <th class="table-attributes sticky">Location</th>
+                                        <th class="table-attributes sticky">Status</th>
+                                    </tr>
+                                    <!--PHP-->
+                                    <?php // Fetch and display items in a table
+                                    while ($item = $itemsQuery->fetch_assoc()) {
+                                        echo '<tr>';
+                                        echo '<td>' . $item['name'] . '</td>';
 
-                                    if ($item['status'] == 0) echo '<td>Incomplete</td>';  
-                                    elseif ($item['status'] == 1) echo '<td>Completed</td>';
-                                    else echo '<td>Status Unknown</td>';
+                                        if ($item['status'] == 0) echo '<td>Incomplete</td>';  
+                                        elseif ($item['status'] == 1) echo '<td>Completed</td>';
+                                        else echo '<td>Status Unknown</td>';
 
-                                    $userQuery = $conn->query("SELECT username FROM users WHERE user_id = " . $item['assigned']);
-                                    
-                                    if ($userQuery && $userQuery->num_rows > 0) {
-                                        $user = $userQuery->fetch_assoc();
-                                        echo '<td>' . ucfirst($user['username']) . '</td>'; // To uppercase
-                                    } else echo '<td>User not found</td>';
-                                    
-                                    $zoneQuery = $conn->query("SELECT name FROM zone WHERE zone_id = " . $item['zone_id']);
+                                        $userQuery = $conn->query("SELECT username FROM users WHERE user_id = " . $item['assigned']);
+                                        
+                                        if ($userQuery && $userQuery->num_rows > 0) {
+                                            $user = $userQuery->fetch_assoc();
+                                            echo '<td>' . ucfirst($user['username']) . '</td>'; // To uppercase
+                                        } else echo '<td>User not found</td>';
+                                        
+                                        $zoneQuery = $conn->query("SELECT name FROM zone WHERE zone_id = " . $item['zone_id']);
 
-                                    if ($zoneQuery && $zoneQuery->num_rows > 0) {
-                                        $zone = $zoneQuery->fetch_assoc();
-                                        echo '<td>' . ucfirst($zone['name']) . '</td>'; // To uppercase
-                                    } else echo '<td>Zone not found</td>';
+                                        if ($zoneQuery && $zoneQuery->num_rows > 0) {
+                                            $zone = $zoneQuery->fetch_assoc();
+                                            echo '<td>' . ucfirst($zone['name']) . '</td>'; // To uppercase
+                                        } else echo '<td>Zone not found</td>';
 
-                                    $locationQuery = $conn->query("SELECT name FROM location WHERE location_id = (SELECT location_id FROM zone WHERE zone_id = " . $item['zone_id'] . ")");
+                                        $locationQuery = $conn->query("SELECT name FROM location WHERE location_id = (SELECT location_id FROM zone WHERE zone_id = " . $item['zone_id'] . ")");
 
-                                    if ($locationQuery && $locationQuery->num_rows > 0) {
-                                        $location = $locationQuery->fetch_assoc();
-                                        echo '<td>' . ucfirst($location['name']) . '</td>'; // To uppercase
-                                    } else echo '<td>Location not found</td>';
+                                        if ($locationQuery && $locationQuery->num_rows > 0) {
+                                            $location = $locationQuery->fetch_assoc();
+                                            echo '<td>' . ucfirst($location['name']) . '</td>'; // To uppercase
+                                        } else echo '<td>Location not found</td>';
+                                        
+                                        
+                                        if ($item['status'] == 0) {
+                                            echo '<td><input type="checkbox" name="completed" value="' . $item['item_id'] . '"></td>';
+                                        } else echo '<td></td>';
 
-                                    echo '</tr>';
-                                }
-                                ?>
-                                <!--PHP-->
-                            </table>
-                        </div>
+                                        echo '</tr>';
+                                    }
+                                    ?>
+                                    <!--PHP-->
+                                </table>
+                            </div>
+                            <button class="button" type="submit">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -207,6 +229,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
     <!--JS-->
     <script> const userId = "<?php echo $user_id; ?>"; </script> <!-- Pass user id to JS -->
     <script src="/assets/js/upkeepify/filters-items.js"></script>
+    <script src="/assets/js/upkeepify/update-item-completion.js"></script>
     <script src="/assets/js/toggle-sticky.js"></script>
     <script src="/assets/js/dynamic-navigation-bar.js"></script>
     <!--JS-->

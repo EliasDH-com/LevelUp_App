@@ -109,19 +109,32 @@
                         <strong>Purpose:</strong> The Level Up Application provides a centralized gateway to various applications used within the company, both internally developed and from external partners. It serves as a central hub for all employees, offering an overview of different applications, enabling simple navigation and access.
                         <br><br>
                         <strong>Version:</strong> 1.0.0
+                        <br><br>
+                        <a href="https://eliasdh.com/assets/pages/privacy-policy.html" target="_blank">EliasDH Privacy Policy</a>
+                        <br>
+                        <a href="https://eliasdh.com/assets/pages/legal-guidelines.html" target="_blank">EliasDH Legal Guidelines</a>
                     </p>
                     <p id="infoContentNL" style="display: none;">
                         <strong>Doel:</strong> Het Level Up Applicatie biedt een gecentraliseerde toegang tot diverse applicaties die worden gebruikt binnen het bedrijf, zowel intern ontwikkeld als door externe partners. Het vormt een centraal punt voor alle medewerkers en biedt een overzicht van verschillende applicaties, waardoor een eenvoudige navigatie en toegang mogelijk is.
                         <br><br>
                         <strong>Versie:</strong> 1.0.0
+                        <br><br>
+                        <a href="https://eliasdh.com/assets/pages/privacy-policy.html" target="_blank">EliasDH Privacybeleid</a>
+                        <br>
+                        <a href="https://eliasdh.com/assets/pages/legal-guidelines.html" target="_blank">EliasDH Juridische Richtlijnen</a>
+
                     </p>
                     <p id="infoContentFR" style="display: none;">
                         <strong>Objectif:</strong> L'application Level Up offre un accès centralisé à diverses applications utilisées au sein de l'entreprise, tant développées en interne que par des partenaires externes. Il constitue un point central pour tous les employés et donne un aperçu des différentes applications, permettant une navigation et un accès faciles.
                         <br><br>
                         <strong>Version:</strong> 1.0.0
+                        <br><br>
+                        <a href="https://eliasdh.com/assets/pages/privacy-policy.html" target="_blank">EliasDH Politique De Confidentialité</a>
+                        <br>
+                        <a href="https://eliasdh.com/assets/pages/legal-guidelines.html" target="_blank">EliasDH Directives Juridiques</a>
                     </p>
                     <button onclick="closeInfoWindow()">Close</button>
-                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                    <select class="select" id="languageSelect" onchange="changeLanguage(this.value)">
                         <option value="EN">English</option>
                         <option value="NL">Nederlands</option>
                         <option value="FR">Français</option>
