@@ -12,12 +12,10 @@
         <link href="/assets/media/images/favicon.ico" rel="icon">
         <!--Favicon-->
         <!--CSS-->
+        <link rel="stylesheet" href="/assets/css/bootstrap.css">
         <link rel="stylesheet" href="/assets/css/kiosk-index-style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!--CSS-->
-        <!--Bootstrap-->
-        <link rel="stylesheet" href="/assets/css/bootstrap.css">
-        <!--Bootstrap-->
     </head>
     <body>
         <!--PHP-->
