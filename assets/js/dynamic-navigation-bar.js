@@ -99,10 +99,27 @@ function displayNotifications(notifications) {
     const notificationsText = document.getElementById('notifications');
     notificationsText.innerHTML = '';
 
+    function formatDate(date) {
+        const formattedDate = new Date(date);
+        const day = formattedDate.getDate().toString().padStart(2, '0');
+        const month = (formattedDate.getMonth() + 1).toString().padStart(2, '0');
+        const year = formattedDate.getFullYear();
+        return `${day}/${month}/${year}`;
+    }
+
     for (const key in notifications) {
         if (notifications.hasOwnProperty(key)) {
-            const notification = notifications[key];
-            notificationsText.innerHTML += `<strong>${notification['title']}</strong><br>${notification['content']}<br><br>`;
+            const item = notifications[key];
+            let statusText = '';
+            if (item['status'] == 0) {
+                statusText = 'Incomplete';
+            } else if (item['status'] == 1) {
+                statusText = 'Completed';
+            } else {
+                statusText = 'Status Unknown';
+            }
+            const formattedDeadline = formatDate(item['deadline']);
+            notificationsText.innerHTML += `<strong>${item['name']}</strong><br>Status: ${statusText}<br>Deadline: ${formattedDeadline}<br><br>`;
         }
     }
 }
