@@ -146,7 +146,7 @@
                     <a href="#" onclick="openNotificationsPopup()"><i class="fas fa-bell"></i></a>
                     <a href="#" onclick="openUserInfoPopup()"><i class="fas fa-user"></i></a>
                     <a href="#" onclick="openInfoWindow()"><i class="fas fa-info"></i></a>
-                    <a href="/login.html"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="/index.html"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </header>
