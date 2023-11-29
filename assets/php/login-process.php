@@ -6,7 +6,7 @@
  */
 
 $conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
-
+// $conn = mysqli_connect("localhost", "levelupdb", "2650", "levelupapp");
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
 if (isset($_POST['login_post'])) {

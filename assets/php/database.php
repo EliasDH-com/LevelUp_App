@@ -16,6 +16,6 @@ $user_id = $_SESSION['user_id'];
 $username = $_SESSION['username'];
 
 $conn = mysqli_connect("localhost", "root", "", "levelup_app_upkeepify");
-
+// $conn = mysqli_connect("localhost", "levelupdb", "2650", "levelupapp");
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 ?>
