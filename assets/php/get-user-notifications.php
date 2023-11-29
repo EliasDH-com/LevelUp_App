@@ -8,10 +8,8 @@
 include '../../assets/php/database.php';
  
 $user_id = $_GET['user_id'];
-$currentTimestamp = time();
-$tenHoursAgo = $currentTimestamp - 36000;
  
-$query = "SELECT name, status, deadline FROM item WHERE $user_id = assigned AND status = 0 AND deadline > FROM_UNIXTIME($tenHoursAgo)";
+$query = "SELECT name, status, deadline FROM item WHERE $user_id = assigned AND status=0";
 $result = $conn->query($query);
  
 $items = array();
