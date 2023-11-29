@@ -121,7 +121,6 @@
                         <a href="https://eliasdh.com/assets/pages/privacy-policy.html" target="_blank">EliasDH Privacybeleid</a>
                         <br>
                         <a href="https://eliasdh.com/assets/pages/legal-guidelines.html" target="_blank">EliasDH Juridische Richtlijnen</a>
-
                     </p>
                     <p id="infoContentFR" style="display: none;">
                         <strong>Objectif:</strong> L'application Level Up offre un accès centralisé à diverses applications utilisées au sein de l'entreprise, tant développées en interne que par des partenaires externes. Il constitue un point central pour tous les employés et donne un aperçu des différentes applications, permettant une navigation et un accès faciles.
