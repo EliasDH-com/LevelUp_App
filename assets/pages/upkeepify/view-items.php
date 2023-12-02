@@ -49,10 +49,10 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                         <li class="has-submenu">
                             <a href="#"><i class="fas fa-clock"></i> SessionSync</a>
                             <ul class="submenu">
-                                <li><a href="/assets/pages/SessionSync/timetable-edegem.html" target="_blank">Timetable</a></li>
-                                <li><a href="/assets/pages/SessionSync/time-edegem-trampoline.html" target="_blank">Time Trampoline</a></li>
-                                <li><a href="/assets/pages/SessionSync/time-edegem-inflatable.html" target="_blank">Time Inflatable</a></li>
-                                <li><a href="/assets/pages/SessionSync/time-edegem-bouldering.html" target="_blank">Time Bouldering</a></li>
+                                <li><a href="/assets/pages/sessionsync/timetable-edegem.html" target="_blank">Timetable</a></li>
+                                <li><a href="/assets/pages/sessionsync/time-edegem-trampoline.html" target="_blank">Time Trampoline</a></li>
+                                <li><a href="/assets/pages/sessionsync/time-edegem-inflatable.html" target="_blank">Time Inflatable</a></li>
+                                <li><a href="/assets/pages/sessionsync/time-edegem-bouldering.html" target="_blank">Time Bouldering</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
