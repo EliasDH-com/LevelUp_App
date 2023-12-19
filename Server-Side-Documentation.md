@@ -1,4 +1,9 @@
+## 📘Table of Contents
+- [📌Database](#database)
+- [📌Set up Cronjobs](#set-up-cronjobs)
 
+## 📌Database:
+```SQL
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -32,10 +37,7 @@ CREATE TABLE `zone` (
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-ALTER TABLE `item`
-  ADD PRIMARY KEY (`item_id`),
-  ADD KEY `zone_id` (`zone_id`),
-  ADD KEY `assigned` (`assigned`);
+ALTER TABLE `item` ADD PRIMARY KEY (`item_id`), ADD KEY `zone_id` (`zone_id`), ADD KEY `assigned` (`assigned`);
 
 ALTER TABLE `location` ADD PRIMARY KEY (`location_id`);
 
@@ -57,3 +59,6 @@ ADD CONSTRAINT `item_ibfk_2` FOREIGN KEY (`assigned`) REFERENCES `users` (`user_
 
 ALTER TABLE `zone` ADD CONSTRAINT `zone_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`);
 COMMIT;
+```
+
+## 📌Set up Cronjobs:
