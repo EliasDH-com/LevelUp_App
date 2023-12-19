@@ -1,3 +1,4 @@
 # Ignore videos in the media assets folder
 /assets/media/videos/*
+/email-info.txt
 ```
