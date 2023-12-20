@@ -1,4 +1,4 @@
 # Ignore videos in the media assets folder
 /assets/media/videos/*
-/email-script.php
+/sendemail/email-script.php
 ```
