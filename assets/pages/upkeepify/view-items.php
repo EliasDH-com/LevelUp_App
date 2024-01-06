@@ -176,6 +176,7 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                                         <th class="table-attributes sticky">Location</th>
                                         <th class="table-attributes sticky">Deadline</th>
                                         <th class="table-attributes sticky">Status</th>
+                                        <!--<th class="table-attributes sticky">File</th>-->
                                     </tr>
                                     <!--PHP-->
                                     <?php // Fetch and display items in a table
@@ -214,6 +215,10 @@ $itemsQuery = $conn->query("SELECT * FROM item WHERE item_id IN (SELECT item_id 
                                             echo '<td><input type="checkbox" name="completed" value="' . $item['item_id'] . '"></td>';
                                         } else echo '<td></td>';
                                         
+                                        // Display file if it exists if not Upload File button
+                                        //if ($item['file'] != null) {
+                                        //    echo '<td><a href="/assets/media/files/' . $item['file'] . '" target="_blank">View File</a></td>';
+                                        //} else echo '<td><a href="/assets/php/upkeepify/upload-file.php?item_id=' . $item['item_id'] . '">Upload File</a></td>';
                                         echo '</tr>';
                                     }
                                     ?>

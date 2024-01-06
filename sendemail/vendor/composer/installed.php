@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'jamesiarmes/php-ntlm' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '08fa988af7506b8dc366737b06c86633ba8cecbc',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jamesiarmes/php-ntlm',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-ews/php-ews' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '405f03cb679eff59c84f223962c9cadf14b38450',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-ews/php-ews',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
