@@ -81,14 +81,14 @@ COMMIT;
 
 1. Send email to users with items every week
 ```bash
-chmod +x /var/www/levelup_app/sendemail/email-script.php
+chmod +x /var/www/levelup_app/sendemail/email-script-deadline.php
 crontab -e
 ```
 ```text
-0 15 * * 0 /var/www/levelup_app/sendemail/email-script.php
+0 15 * * 0 /var/www/levelup_app/sendemail/email-script-deadline.php
 ```
 
-- email-script.php
+- email-script-deadline.php
 ```php
 <?php
 require 'vendor/autoload.php';
@@ -142,7 +142,7 @@ $request->Items = new NonEmptyArrayOfAllItemsType();
 $request->MessageDisposition = MessageDispositionType::SEND_AND_SAVE_COPY;
 
 // Get the email content.
-$emailtemplate = file_get_contents('email-template.html');
+$emailtemplate = file_get_contents('email-template-deadline.html');
 
 for ($i = 0; $i < count($emailaddresses); $i++) {
 	$emailContent = $emailtemplate;
