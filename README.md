@@ -91,6 +91,12 @@ crontab -e
 - email-script-deadline.php
 ```php
 <?php
+/**
+ * @author Elias De Hondt
+ * @see https://eliasdh.com
+ * @since 31/10/2023
+ */
+
 require 'vendor/autoload.php';
 
 use \jamesiarmes\PhpEws\Client;

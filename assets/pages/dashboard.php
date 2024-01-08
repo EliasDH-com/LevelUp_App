@@ -30,7 +30,7 @@
             <div class="navigation-bar">
                 <div class="main-menu-top">
                     <img class="main-menu-top" src="/assets/media/images/logo.png" alt="Logo">
-                    <p class="username">Hey, <?php echo $username; ?></p>
+                    <p class="username">Hi, <?php echo $username; ?></p>
                 </div>
                 <nav>
                     <ul>

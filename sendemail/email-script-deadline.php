@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author Elias De Hondt
+ * @see https://eliasdh.com
+ * @since 31/10/2023
+ */
+
 require 'vendor/autoload.php';
 
 use \jamesiarmes\PhpEws\Client;
@@ -36,11 +42,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 $host = 'exchange.jfk.be';
-$username = 'noreply@levelup.be';
-$password = '2X7tbq1x';
+$byemail = 'noreply@levelup.be';
+$bypassword = '2X7tbq1x';
 $version = Client::VERSION_2010_SP2;
 
-$client = new Client($host, $username, $password, $version);
+$client = new Client($host, $byemail, $bypassword, $version);
 
 // Build the request,
 $request = new CreateItemType();

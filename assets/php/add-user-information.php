@@ -7,6 +7,8 @@
 
 include '../php/database.php';
 
+require '../../sendemail/email-script-new-user.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $username = $_POST['username'];
@@ -16,6 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $addUserQuery = "INSERT INTO users (username, password, email) VALUES ('$username', '$hashed_password', '$email')";
+
+    sendVerificationEmail($username, $email, $password);
 
     $conn->query($addUserQuery) === TRUE;
 }
