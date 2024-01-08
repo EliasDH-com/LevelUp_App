@@ -1,7 +1,8 @@
 # Ignore videos in the media assets folder
 /assets/media/videos/*
 # Ignore the email script
-/sendemail/email-script.php
+/sendemail/email-script-deadline.php
+/sendemail/email-script-new-password.php
 
 # Ignore default
 *.suo
