@@ -134,11 +134,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 $host = 'x';
-$username = 'x';
-$password = 'x';
+$byemail = 'x';
+$bypassword = 'x';
 $version = Client::VERSION_2010_SP2;
 
-$client = new Client($host, $username, $password, $version);
+$client = new Client($host, $byemail, $bypassword, $version);
 
 // Build the request,
 $request = new CreateItemType();

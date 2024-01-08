@@ -53,7 +53,7 @@ function sendVerificationEmail($username, $email, $password) {
     // Set the sender.
     $message->From = new SingleRecipientType();
     $message->From->Mailbox = new EmailAddressType();
-    $message->From->Mailbox->EmailAddress = $username;
+    $message->From->Mailbox->EmailAddress = $byemail;
 
     // Set the recipient.
     $recipient = new EmailAddressType();
